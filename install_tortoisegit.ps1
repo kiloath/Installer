@@ -1,35 +1,30 @@
-function Install_7zr {
-    if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        $DownloadUrl = "https://www.7-zip.org/a/7zr.exe"
-        $KiloathDir = Join-Path $HOME "KiloathApp"
-        $Directory = Join-Path $KiloathDir "7-zip"
-        $Target = Join-Path $Directory "7zr.exe"
-        New-Item $Directory -Force -ItemType Directory | Out-Null
-        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-        $BinDir = $Directory
-        $regexInstallPath = [regex]::Escape($BinDir)
-        if (-Not ($env:Path -Match "$regexInstallPath")) {
-            [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $BinDir, "User")
-            $env:Path = $env:Path.TrimEnd(";") + ";" + $BinDir
-        }
-    }
-}
 function Install {
-    Install_7zr
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $DownloadUrl = "https://github.com/kiloath/Installer/raw/main/src/TortoiseGit.7z"
+    # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
+    $Version = "2.16.0.0"
+    $DownloadUrl = "https://download.tortoisegit.org/tgit/$Version/TortoiseGit-$Version-64bit.msi"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "TortoiseGit"
-    $Target = Join-Path $Directory "TortoiseGit.7z"
-    New-Item $Directory -Force -ItemType Directory | Out-Null
-    Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-    $BinDir = $Directory
-    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$BinDir"" -y" | Out-Null
-    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\VSCode -value "TortoiseGit Log" -Force | Out-Null
-    New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\Directory\shell\VSCode -Name "Icon" -Value "$BinDir\TortoiseGitProc.exe" -Force | Out-Null
-    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\VSCode\command -value """$BinDir\TortoiseGitProc.exe"" /command:log /path:""%V""" -Force | Out-Null
+    $Target = Join-Path $Directory "TortoiseGit-$Version-64bit.msi"
+    $BinDir = "$Directory\TortoiseGit"
+    $BinExe = "$BinDir\Program Files\TortoiseGit\bin\TortoiseGitProc.exe"
+    $AppName = "Tortoise"
+    # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
+    if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 22552576)) {
+        Write-Host "你已下載最新版"
+    }
+    else {
+        New-Item $Directory -Force -ItemType Directory | Out-Null
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
+    }
+    # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
+    Start-Process -FilePath "msiexec" -ArgumentList "/a $Target /qn TARGETDIR=$BinDir"
+    # (6) 設定目錄右鍵功能 - - - - - - - - (6) 設定目錄右鍵功能 - - - - - - - - (6) 設定目錄右鍵功能 - - - - - - - - - -
+    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
+    New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -Name "Icon" -Value "$BinExe" -Force | Out-Null
+    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName\command -value  """$BinExe"" /command:log /path:""%V""" -Force | Out-Null
 }
 
+Write-Host "--- 安裝 TortoiseGit ---"
 Install
-# 我只用Log功能比gitk好用
+Write-Host "--- 完成 TortoiseGit ---"

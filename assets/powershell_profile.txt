@@ -1,0 +1,25 @@
+# kiloath #
+$SSLCallback = [System.Net.ServicePointManager]::ServerCertificateValidationCallback
+[System.Console]::OutputEncoding=[System.Text.Encoding]::GetEncoding(65001)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+# [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kiloath.omp.json" | Invoke-Expression
+function Get-MD5([string]$text='')
+{
+  $md5 = new-object -TypeName System.Security.Cryptography.MD5CryptoServiceProvider; `
+  $utf8 = new-object -TypeName System.Text.UTF8Encoding; `
+  $hash = [System.BitConverter]::ToString($md5.ComputeHash($utf8.GetBytes($text))); `
+  $hash = $hash.ToLower() -replace '-', ''
+  $hash
+}
+function kodir()
+{
+    Get-ChildItem| Format-Wide -Property NameString -AutoSize
+}
+function kocmd()
+{
+    Start-Process -FilePath "$HOME\KiloathApp\FreeCommanderXE\FreeCommander.exe" -ArgumentList "/T $((pwd).ProviderPath)"
+}
+IF((Get-Location).Path -eq "$ENV:WINDIR\System32"){Set-Location $HOME}
+# kiloath #
