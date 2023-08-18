@@ -18,10 +18,11 @@ function Install_7zr {
 function Install {
     Install_7zr
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/PortableGit-2.41.0.3-64-bit.7z.exe"
+    # $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/PortableGit-2.41.0.3-64-bit.7z.exe"
+    $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.1/PortableGit-2.42.0-64-bit.7z.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "git"
-    $Target = Join-Path $Directory "PortableGit-2.41.0.3-64-bit.7z.exe"
+    $Target = Join-Path $Directory "PortableGit-2.42.0-64-bit.7z.exe"
     New-Item $Directory -Force -ItemType Directory | Out-Null
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     $BinDir = $Directory
