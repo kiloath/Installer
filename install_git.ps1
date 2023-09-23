@@ -1,38 +1,61 @@
-function Install_7zr {
-    if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        $DownloadUrl = "https://www.7-zip.org/a/7zr.exe"
-        $KiloathDir = Join-Path $HOME "KiloathApp"
-        $Directory = Join-Path $KiloathDir "7-zip"
-        $Target = Join-Path $Directory "7zr.exe"
-        New-Item $Directory -Force -ItemType Directory | Out-Null
-        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-        $BinDir = $Directory
-        $regexInstallPath = [regex]::Escape($BinDir)
-        if (-Not ($env:Path -Match "$regexInstallPath")) {
-            [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $BinDir, "User")
-            $env:Path = $env:Path.TrimEnd(";") + ";" + $BinDir
-        }
-    }
-}
 function Install {
-    Install_7zr
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    # $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/PortableGit-2.41.0.3-64-bit.7z.exe"
-    $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.1/PortableGit-2.42.0-64-bit.7z.exe"
+    # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
+    $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/PortableGit-2.42.0.2-64-bit.7z.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "git"
-    $Target = Join-Path $Directory "PortableGit-2.42.0-64-bit.7z.exe"
-    New-Item $Directory -Force -ItemType Directory | Out-Null
-    Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-    $BinDir = $Directory
-    Start-Process -FilePath "7z.exe" -ArgumentList "x $Target -o""$BinDir"" -y" | Out-Null
-	$BinDir = "$BinDir\bin"
+    $Target = Join-Path $Directory "PortableGit-2.42.0.2-64-bit.7z.exe"
+    $BinDir = Join-Path $Directory "cmd"
+    # $BinExe = "$BinDir\git.exe"
+    # $AppName = "git"
+    # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
+    # <#
+    if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
+        (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
+    }
+    #>
+    # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
+    if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 57890920)) {
+        Write-Host "你已下載最新版"
+    }
+    else {
+        New-Item $Directory -Force -ItemType Directory | Out-Null
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
+    }
+    # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
+    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
+    # Expand-Archive -Path $Target -DestinationPath $Directory -Force
+    # (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - -
+    # <#
     $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
         [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $BinDir, "User")
         $env:Path = $env:Path.TrimEnd(";") + ";" + $BinDir
     }
+    #>
+    # (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - -
+    # 6.1 檔案
+    <#
+    New-Item -Path HKCU:\SOFTWARE\Classes\*\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
+    New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\*\shell\$AppName -Name "Icon" -Value "$BinExe" -Force | Out-Null
+    New-Item -Path HKCU:\SOFTWARE\Classes\*\shell\$AppName\command -value """$BinExe"" ""%1""" -Force | Out-Null
+    #>
+    # 6.2 目錄
+    <#
+    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
+    New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -Name "Icon" -Value "$BinExe" -Force | Out-Null
+    New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName\command -value """$BinExe"" ""%V""" -Force | Out-Null
+    #>
+    # (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - -
+    <#
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$KiloathDir\$AppName.lnk")
+    $Shortcut.TargetPath = $BinExe
+    $Shortcut.Save()
+    $Shortcut = $WshShell.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\KiloathApp.lnk")
+    $Shortcut.TargetPath = Join-Path $HOME "KiloathApp"
+    $Shortcut.Save()
+    #>
 }
 
 Install
