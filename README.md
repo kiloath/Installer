@@ -36,8 +36,15 @@
 # {2!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
 # {3!} 小抄
-  ```
-  reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
-  reg.exe add HKCU\Software\Classes\CLSID\`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2`}\InprocServer32 /ve /f
-  Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
-  ```
+  * windows 11 永久提權
+    ```
+    reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+    ```
+  * windows 11 關閉其他選項
+    ```
+    reg.exe add HKCU\Software\Classes\CLSID\`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2`}\InprocServer32 /ve /f
+    ```
+  * 移除 Cortana
+    ```
+    Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
+    ```
