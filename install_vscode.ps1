@@ -14,7 +14,7 @@ function Install {
     }
     #>
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
-    if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 131874029)) {
+    if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 0)) {
         Write-Host "你已下載最新版"
     }
     else {
