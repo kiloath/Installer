@@ -1,0 +1,10 @@
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zip.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_notepad++.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_git.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_net8sdk.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_conan.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_sarasa.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_bcbuildtools.ps1" -UseBasicParsing).Content | Invoke-Expression

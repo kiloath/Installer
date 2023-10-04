@@ -1,7 +1,11 @@
 # 我在那裡?
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
-
+# {1!} allinone
+* allinone_a.ps1
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_a.ps1 -useb).Content | iex
+  ```
 # {1!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
