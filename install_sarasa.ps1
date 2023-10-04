@@ -25,4 +25,6 @@ function Install {
       & "$Directory\sarasa-fixed-tc-regular.ttf"
 }
 
+Write-Host "--- 安裝 sarasa ---"
 Install
+Write-Host "--- 完成 sarasa ---"

@@ -76,4 +76,6 @@ function Install {
     }
 }
 
+Write-Host "--- 安裝 powershell7 ---"
 Install
+Write-Host "--- 完成 powershell7 ---"

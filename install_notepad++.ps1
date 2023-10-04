@@ -58,4 +58,6 @@ function Install {
     #>
 }
 
+Write-Host "--- 安裝 notepad++ ---"
 Install
+Write-Host "--- 完成 notepad++ ---"

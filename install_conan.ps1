@@ -39,5 +39,7 @@ function Install {
     }
 }
 
+Write-Host "--- 安裝 conan ---"
 Install
+Write-Host "--- 完成 conan ---"
 

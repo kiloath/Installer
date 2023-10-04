@@ -16,5 +16,7 @@ function Install {
     }
 }
 
+Write-Host "--- 安裝 7zr ---"
 Install
+Write-Host "--- 完成 7zr ---"
 

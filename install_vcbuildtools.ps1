@@ -23,4 +23,6 @@ function Install {
     }
 }
 
+Write-Host "--- 安裝 vcbuildtools ---"
 Install
+Write-Host "--- 完成 vscode ---"

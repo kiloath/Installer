@@ -82,4 +82,6 @@ function Install {
     }
 }
 
+Write-Host "--- 安裝 net8sdk ---"
 Install
+Write-Host "--- 完成 net8sdk ---"

@@ -57,5 +57,6 @@ function Install {
     $Shortcut.Save()
     #>
 }
-
+Write-Host "--- 安裝 7zip ---"
 Install
+Write-Host "--- 安裝 7zip ---"

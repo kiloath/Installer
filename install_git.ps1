@@ -58,4 +58,6 @@ function Install {
     #>
 }
 
+Write-Host "--- 安裝 git ---"
 Install
+Write-Host "--- 完成 git ---"

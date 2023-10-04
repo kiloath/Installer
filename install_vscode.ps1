@@ -59,5 +59,7 @@ function Install {
     #>
 }
 
+Write-Host "--- 安裝 vscode ---"
 Install
+Write-Host "--- 完成 vscode ---"
 
