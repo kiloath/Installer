@@ -17,7 +17,7 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_git.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tortoisegit.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge.ps1 -useb).Content | iex
+
   ```
 * (2) 開發必備 (無需權限)
   ```
@@ -40,6 +40,7 @@
   ```
 * (4) 執行安裝程式 (無需權限)
   ```
+   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_rust.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_python.ps1 -useb).Content | iex
   ```
@@ -66,3 +67,15 @@
     ```
     Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
     ```
+  * git
+  ```
+  git config --global diff.tool winmerge
+  git config --global difftoo.prompt false
+  git config --global difftool.winmerge.path "$HOME\KiloathApp\winmerge\WinMergeU.exe"
+  git config --global gui.encoding utf-8
+  git config --global merge.tool winmerge
+  git config --global mergetool.winmerge.prompt false
+  git config --global mergetool.keepBackup false
+  git config --global mergetool.winmerge trustExitCode false
+  git config --global mergetool.winmerge.cmd "`"$HOME\KiloathApp\winmerge\WinMergeU.exe`" //ub //fr //wl //wm //ar //dl `"基底`" //dm MERGE_HEAD //dr HEAD `"`$BASE`" `"`$REMOTE`" `"`$LOCAL`" //o `"`$MERGED`""
+  ```
