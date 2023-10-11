@@ -3,7 +3,7 @@
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} allinone
 * allinone_a.ps1 (rust 開發環境)
-  7zr,7zip,notepad++,vscode,sarasa,powershell7,git,tortoisegit,winmerge,rust
+  7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,sarasa
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_a.ps1 -useb).Content | iex
   ```
