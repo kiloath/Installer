@@ -27,6 +27,7 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_doxygen.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_ruby.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_net8sdk.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_nodejs.ps1 -useb).Content | iex
   ```
 * (3) 生活必需品 (無需權限)
   ```
@@ -40,7 +41,7 @@
   ```
 * (4) 執行安裝程式 (無需權限)
   ```
-   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_rust.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_python.ps1 -useb).Content | iex
   ```
