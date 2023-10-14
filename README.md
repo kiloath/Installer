@@ -3,9 +3,9 @@
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} allinone
 * allinone_rust.ps1 (rust 開發環境)
-  vcbuildtools,sarasa,7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust
+  vcbuildtools,sarasa,7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_rust.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_dev.ps1 -useb).Content | iex
   ```
 # {1!} 我的工具箱
 * (1) 我的最愛 (無需權限)

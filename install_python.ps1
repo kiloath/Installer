@@ -5,15 +5,17 @@ function Install {
       $Directory = Join-Path $KiloathDir "rust"
       $Target = Join-Path $Directory "python-3.12.0-amd64.exe"
       # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
-      if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 8594944)) {
-          Write-Host "你已下載最新版"
+      if(Get-Item $Target -ErrorAction SilentlyContinue) {
+          Write-Host "你已下載安裝"
       }
       else {
           New-Item $Directory -Force -ItemType Directory | Out-Null
           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
           Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
       }
-      &$Target -y
+      &$Target /quiet PrependPath=1
 }
 
+Write-Host "--- 安裝 python ---"
 Install
+Write-Host "--- 安裝 python ---"
