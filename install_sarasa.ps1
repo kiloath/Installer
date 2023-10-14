@@ -31,6 +31,7 @@ function Install {
       # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
       Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" sarasa-fixed-tc-regular.ttf -y" -Wait | Out-Null
       # (8) 獨有設定 - - - - - - - - - - - - (8) 獨有設定 - - - - - - - - - - - - (8) 獨有設定 - - - - - - - - - - - - 
+      New-Item "$Env:LocalAppData\Microsoft\Windows\Fonts\" -Force -ItemType Directory | Out-Null
       Copy-Item -Path "$Directory\sarasa-fixed-tc-regular.ttf" -Destination "$Env:LocalAppData\Microsoft\Windows\Fonts\" -Force
       New-ItemProperty -LiteralPath "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" -Name "Sarasa Fixed TC (TrueType)" -Value "$Env:LocalAppData\Microsoft\Windows\Fonts\sarasa-fixed-tc-regular.ttf" -Force | Out-Null
 }
