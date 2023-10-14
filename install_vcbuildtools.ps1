@@ -5,8 +5,8 @@ function Install {
     $Directory = Join-Path $KiloathDir "vcbuildtools"
     $Target = Join-Path $Directory "vs_buildtools.exe"
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
-    if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 3947312)) {
-        Write-Host "你已安裝最新版"
+    if(Get-Item $Target -ErrorAction SilentlyContinue) {
+        Write-Host "你己下載安裝"
     }
     else {
         New-Item $Directory -Force -ItemType Directory | Out-Null
@@ -14,7 +14,7 @@ function Install {
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
         Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --lang en-US" -Wait        
     }
-    &$Directory\VSlayout\vs_setup.exe
+    &$Directory\VSlayout\vs_setup.exe --quiet
     $BinDir = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
     $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
@@ -25,4 +25,4 @@ function Install {
 
 Write-Host "--- 安裝 vcbuildtools ---"
 Install
-Write-Host "--- 完成 vscode ---"
+Write-Host "--- 完成 vcbuildtools, 實際上安裝程式在背景執行, 約5分鐘才完成, 可執行 'cmake --version' 來確認是否完成 ---"
