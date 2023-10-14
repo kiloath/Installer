@@ -3,7 +3,7 @@
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} allinone
 * allinone_dev.ps1 (程式開發環境一鍵安裝)
-  vcbuildtools,sarasa,7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python
+  7zr,7zip,vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_dev.ps1 -useb).Content | iex
   ```

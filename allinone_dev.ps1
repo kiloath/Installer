@@ -1,11 +1,11 @@
-Write-Host "= (01)/15 進度 vcbuildtools,sarasa,7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
-(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1" -UseBasicParsing).Content | Invoke-Expression
-Write-Host "= (02)/15 進度 sarasa,7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
-(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_sarasa.ps1" -UseBasicParsing).Content | Invoke-Expression
-Write-Host "= (03)/15 進度 7zr,7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
+Write-Host "= (01)/15 進度 7zr,7zip,vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
-Write-Host "= (04)/15 進度 7zip,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
+Write-Host "= (02)/15 進度 7zip,vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zip.ps1" -UseBasicParsing).Content | Invoke-Expression
+Write-Host "= (03)/15 進度 vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1" -UseBasicParsing).Content | Invoke-Expression
+Write-Host "= (04)/15 進度 sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_sarasa.ps1" -UseBasicParsing).Content | Invoke-Expression
 Write-Host "= (05)/15 進度 notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_notepad++.ps1" -UseBasicParsing).Content | Invoke-Expression
 Write-Host "= (06)/15 進度 vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
