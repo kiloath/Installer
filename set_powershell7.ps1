@@ -16,11 +16,18 @@ $Download_Powershell_Profile_Local = $Directory
 # Invoke-WebRequest $Download_Powershell_Profile_Url -OutFile $Download_Powershell_Profile_Local -UseBasicParsing
 $Powershell_Profile_Content = Get-Content $Download_Powershell_Profile_Local -raw
 # Write-Host $Powershell_Profile_Content
-$B = $Powershell_Profile_Content | Select-String -Pattern ".*# kiloath #.*" -AllMatches
+$B = $Powershell_Profile_Content | Select-String -Pattern ".*# kiloath #(.|`n)*# kiloath #.*" -AllMatches
 $B.Matches.Length
 $B.Matches | ForEach-Object {
-    Write-Host $_.
+    Write-Host $_.Index
 }
+Write-Host $B.Matches[0].Value
+<#
+$WantToDel = $Powershell_Profile_Content.Substring(0,179)
+$Replaced = $Powershell_Profile_Content.Replace($WantToDel,"")
+$Replaced = $Replaced.Replace($B.Matches[1].Value,"")
+$Replaced | Set-Content "test.txt" -Encoding "UTF8"
+Write-Host "原文:`n$Replaced"
 <# if($file = Get-Item $PROFILE -ErrorAction SilentlyContinue) {
 }
 else {
