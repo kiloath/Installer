@@ -7,7 +7,9 @@ $Download_Powershell_Profile_Local = Join-Path $Directory "powershell_profile.tx
 Invoke-WebRequest $Download_Powershell_Profile_Url -OutFile $Download_Powershell_Profile_Local -UseBasicParsing
 $Powershell_Profile_Content = Get-Content $Download_Powershell_Profile_Local -raw
 
-New-Item -Path $PROFILE -Type File -ErrorAction SilentlyContinue
+if (-not (Get-Item $PROFILE -ErrorAction SilentlyContinue)) {
+    New-Item -Path $PROFILE -Type File -Force
+}
 $PROFILE_CONTENT = Get-Content $PROFILE -raw
 $MatchInfo = $PROFILE_CONTENT | Select-String -Pattern ".*# kiloath #(.|`n)*# kiloath #.*`n?" -AllMatches
 Write-Host $MatchInfo.Length
