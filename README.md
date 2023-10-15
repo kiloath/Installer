@@ -52,6 +52,7 @@
   ```
 * (6) 設定
   ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
   ```
 # {2!} Youtube
