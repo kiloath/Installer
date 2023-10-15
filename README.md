@@ -2,7 +2,12 @@
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} allinone
-* allinone_dev.ps1 (程式開發環境一鍵安裝)
+* set_windows.ps2 (All User, 需要權限, 執行完後會重開機)  
+  (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana, (3) 裝vcbuildtools
+   ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
+  ```
+* allinone_dev.ps1 (By User, 不需權限)  
   7zr,7zip,vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_dev.ps1 -useb).Content | iex
@@ -52,7 +57,6 @@
   ```
 * (6) 設定
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
   ```
 # {2!} Youtube
