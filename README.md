@@ -50,6 +50,10 @@
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1 -useb).Content | iex
   ```
+* (6) 設定
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
+  ```
 # {2!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
 # {3!} 小抄
