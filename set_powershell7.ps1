@@ -28,3 +28,8 @@ $Download_kiloath_omp_json_Local = "$env:POSH_THEMES_PATH\kiloath.omp.json"
 Invoke-WebRequest $Download_kiloath_omp_json_Url -OutFile $Download_kiloath_omp_json_Local -UseBasicParsing
 
 oh-my-posh font install CascadiaCode
+
+$settingPath = "$env:localappdata\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$settings = Get-Content $settingPath -raw | ConvertFrom-Json
+$settings.profiles.defaults.font.face = "CaskaydiaCove Nerd Font Mono"
+$settings | ConvertTo-Json -Depth 32 | Set-Content $settingPath -Encoding "UTF8"
