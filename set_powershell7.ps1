@@ -1,6 +1,7 @@
 winget install -e --id JanDeDobbeleer.OhMyPosh --source winget
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
+
 $KiloathDir = Join-Path $HOME "KiloathApp"
 $Directory = Join-Path $KiloathDir "powershell"
 $Download_Powershell_Profile_Url = "https://github.com/kiloath/Installer/raw/main/assets/powershell_profile.txt"
@@ -21,9 +22,9 @@ $MatchInfo.Matches | ForEach-Object  {
     }
 }
 $PROFILE_CONTENT | Set-Content $PROFILE -Encoding "UTF8"
-
 Add-Content $PROFILE $Powershell_Profile_Content
 
+$env:POSH_THEMES_PATH = [System.Environment]::GetEnvironmentVariable("POSH_THEMES_PATH","User")
 $Download_kiloath_omp_json_Url = "https://github.com/kiloath/Installer/raw/main/assets/kiloath.omp.json"
 $Download_kiloath_omp_json_Local = "$env:POSH_THEMES_PATH\kiloath.omp.json"
 Invoke-WebRequest $Download_kiloath_omp_json_Url -OutFile $Download_kiloath_omp_json_Local -UseBasicParsing
