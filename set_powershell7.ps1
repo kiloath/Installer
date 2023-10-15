@@ -16,10 +16,10 @@ $Download_Powershell_Profile_Local = $Directory
 # Invoke-WebRequest $Download_Powershell_Profile_Url -OutFile $Download_Powershell_Profile_Local -UseBasicParsing
 $Powershell_Profile_Content = Get-Content $Download_Powershell_Profile_Local -raw
 # Write-Host $Powershell_Profile_Content
-$B = $Powershell_Profile_Content | Select-String -Pattern "#/m" -AllMatches -Context 0,2
+$B = $Powershell_Profile_Content | Select-String -Pattern "#" -AllMatches
 $B.Matches.Length
 $B.Matches | ForEach-Object {
-    Write-Host $_
+    Write-Host $_.Index
 }
 <# if($file = Get-Item $PROFILE -ErrorAction SilentlyContinue) {
 }

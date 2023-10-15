@@ -1,2 +1,4 @@
-[System.Console]::OutputEncoding=[System.Text.Encoding]::GetEncoding(65001) #kiloath begin
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kiloath.omp.json" | Invoke-Expression #kiloath
+# kiloath #
+[System.Console]::OutputEncoding=[System.Text.Encoding]::GetEncoding(65001)
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kiloath.omp.json" | Invoke-Expression
+# kiloath #
