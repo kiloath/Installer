@@ -1,4 +1,5 @@
 winget install -e --id JanDeDobbeleer.OhMyPosh --source winget
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
 $KiloathDir = Join-Path $HOME "KiloathApp"
 $Directory = Join-Path $KiloathDir "powershell"
