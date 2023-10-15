@@ -1,5 +1,5 @@
 winget install -e --id JanDeDobbeleer.OhMyPosh --source winget
-oh-my-posh font install
+oh-my-posh font install CascadiaCode
 $KiloathDir = Join-Path $HOME "KiloathApp"
 $Directory = Join-Path $KiloathDir "powershell"
 $Download_Powershell_Profile_Url = "https://github.com/kiloath/Installer/raw/main/assets/powershell_profile.txt"
