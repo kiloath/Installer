@@ -32,5 +32,10 @@ oh-my-posh font install CascadiaCode
 
 $settingPath = "$env:localappdata\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 $settings = Get-Content $settingPath -raw | ConvertFrom-Json
-$settings.profiles.defaults.font.face = "CaskaydiaCove Nerd Font Mono"
+$font = @"
+{
+   "face": "CaskaydiaCove Nerd Font Mono"
+}
+"@
+$settings.profiles.defaults | add-member -Name "font" -Value (ConvertFrom-Json -InputObject $font) -MemberType NoteProperty -Forc
 $settings | ConvertTo-Json -Depth 32 | Set-Content $settingPath -Encoding "UTF8"
