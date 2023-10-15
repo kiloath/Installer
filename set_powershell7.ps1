@@ -3,7 +3,7 @@ winget install -e --id JanDeDobbeleer.OhMyPosh --source winget
 $KiloathDir = Join-Path $HOME "KiloathApp"
 $Directory = Join-Path $KiloathDir "powershell"
 $Download_Powershell_Profile_Url = "https://github.com/kiloath/Installer/raw/main/assets/powershell_profile.txt"
-$Download_Powershell_Profile_Local = $Directory
+$Download_Powershell_Profile_Local = Join-Path $Directory "powershell_profile.txt"
 Invoke-WebRequest $Download_Powershell_Profile_Url -OutFile $Download_Powershell_Profile_Local -UseBasicParsing
 $Powershell_Profile_Content = Get-Content $Download_Powershell_Profile_Local -raw
 
