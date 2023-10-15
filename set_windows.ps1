@@ -3,4 +3,4 @@ reg.exe add HKCU\Software\Classes\CLSID\`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2`}
 Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
 winget install -e --id gerardog.gsudo --source winget
 # (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1" -UseBasicParsing).Content | Invoke-Expression
-Restart-Computer –delay 15
+shutdown /r /t 10
