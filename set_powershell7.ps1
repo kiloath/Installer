@@ -1,7 +1,6 @@
 winget install -e --id JanDeDobbeleer.OhMyPosh --source winget
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-
 $KiloathDir = Join-Path $HOME "KiloathApp"
 $Directory = Join-Path $KiloathDir "powershell"
 $Download_Powershell_Profile_Url = "https://github.com/kiloath/Installer/raw/main/assets/powershell_profile.txt"
@@ -14,7 +13,6 @@ if (-not (Get-Item $PROFILE -ErrorAction SilentlyContinue)) {
 }
 $PROFILE_CONTENT = Get-Content $PROFILE -raw
 $MatchInfo = $PROFILE_CONTENT | Select-String -Pattern ".*# kiloath #(.|`n)*# kiloath #.*`n?" -AllMatches
-Write-Host $MatchInfo.Length
 
 $MatchInfo.Matches | ForEach-Object  {
     if( $_ -ne $null) {
