@@ -14,7 +14,7 @@ function Install {
     $Directory = Join-Path $KiloathDir "sarasa"
     $Target = Join-Path $Directory "sarasa-gothic-ttf-unhinted-$latest_version.7z"
     if((Get-Item $Target -ErrorAction SilentlyContinue)) {
-        Write-Host "你已下載安裝。"
+        Write-Host "你已下載安裝"
         return
     }
     else {
