@@ -58,35 +58,21 @@
 * (6) 設定
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_final.ps1 -useb).Content | iex
   ```
 # {2!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
 # {3!} 小抄
-  * windows 11 即時提權 (辧公室電腦)
-    ```
-    winget install gerardog.gsudo
-    ```
-  * windows 11 永久提權 (個人電腦)
-    ```
-    reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
-    ```
-  * windows 11 關閉其他選項
-    ```
-    reg.exe add HKCU\Software\Classes\CLSID\`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2`}\InprocServer32 /ve /f
-    ```
-  * 移除 Cortana
-    ```
-    Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
-    ```
-  * git
-    ```
-    git config --global diff.tool winmerge
-    git config --global difftoo.prompt false
-    git config --global difftool.winmerge.path "$HOME\KiloathApp\winmerge\WinMergeU.exe"
-    git config --global gui.encoding utf-8
-    git config --global merge.tool winmerge
-    git config --global mergetool.winmerge.prompt false
-    git config --global mergetool.keepBackup false
-    git config --global mergetool.winmerge trustExitCode false
-    git config --global mergetool.winmerge.cmd "`"$HOME\KiloathApp\winmerge\WinMergeU.exe`" //ub //fr //wl //wm //ar //dl `"基底`" //dm MERGE_HEAD //dr HEAD `"`$BASE`" `"`$REMOTE`" `"`$LOCAL`" //o `"`$MERGED`""
-    ```
+* tls
+  ```
+  yarn config set "strict-ssl" false
+  curl -k https://raw.githubusercontent.com/github/gitignore/master/VisualStudio.gitignore --output .gitignore
+  ```
+* docker
+  ```
+  RUN pip config set install.trusted-host "files.pythonhosted.org pypi.org"
+  RUN pip install -r requirements.txt
+  ENV NODE_TLS_REJECT_UNAUTHORIZED 0
+  RUN yarn config set "strict-ssl" false 
+  RUN npm config set strict-ssl false
+  ```
