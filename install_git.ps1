@@ -5,8 +5,6 @@ function latest_version {
     $response = $request.GetResponse()
     $realTagUrl = $response.ResponseUri.OriginalString
     $GitHubversion = $realTagUrl.split('/')[-1].Trim('v')
-    #$verParts = $GitHubversion.split('.')
-    #$version = $verParts[0]+'.'+$verParts[1]+'.'+$verParts[2]+'.'+$verParts[4]
     return $GitHubversion
 }
 
@@ -15,8 +13,6 @@ function current_version {
         return [System.Version]"0.0.0.0"
     }
     else {
-        #$verParts = $(git --version).Split()[2].split('.')
-        #$version = $verParts[0]+'.'+$verParts[1]+'.'+$verParts[2]+'.'+$verParts[4]
         return $(git --version).Split()[2]
     }
 }
