@@ -5,7 +5,7 @@
 * git  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_git -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_git.ps1 -useb).Content | iex
   ```
 # {1!} allinone
 * set_windows.ps2 (All User, 需要權限, 執行完後會重開機)  
