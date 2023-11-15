@@ -5,7 +5,7 @@
    git config --global user.name Kiloath
    git config --global user.email kiloath@outlook.com
    ```
-1. 編輯器設定為 notepad++
-   ```
-   git config --global core.editor $("'$HOME/KiloathApp/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin" -replace '\\','/')
-   ```
+1. 是否已設定使用Notepad++當預設的文字編輯器
+  ```
+  git config --global --edit
+  ```

@@ -26,13 +26,12 @@ function Install {
     $latest_version = latest_version
     $current_version = current_version
     Write-Host "git: 你的版本: $current_version, 最新版本: $latest_version"
-    if ( $latest_version -eq $current_version)
-    {
+    if ( $latest_version -eq $current_version) {
         Write-Host "你的 git 已是新版本"
         return
     }
     $verParts = $latest_version.split('.')
-    $version = $verParts[0]+'.'+$verParts[1]+'.'+$verParts[2]+'.'+$verParts[4]
+    $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2] + '.' + $verParts[4]
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v$latest_version/PortableGit-$version-64-bit.7z.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
@@ -48,7 +47,7 @@ function Install {
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
-    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
+    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" -wait | Out-Null
     # (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - -
     $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
@@ -57,6 +56,20 @@ function Install {
     }
 }
 
+function Setup {
+    git config --global diff.tool winmerge
+    git config --global difftoo.prompt false
+    git config --global difftool.winmerge.path "$HOME\KiloathApp\winmerge\WinMergeU.exe"
+    git config --global gui.encoding utf-8
+    git config --global merge.tool winmerge
+    git config --global mergetool.winmerge.prompt false
+    git config --global mergetool.keepBackup false
+    git config --global mergetool.winmerge trustExitCode false
+    git config --global mergetool.winmerge.cmd "`"$HOME\KiloathApp\winmerge\WinMergeU.exe`" //ub //fr //wl //wm //ar //dl `"基底`" //dm MERGE_HEAD //dr HEAD `"`$BASE`" `"`$REMOTE`" `"`$LOCAL`" //o `"`$MERGED`""
+    git config --global core.editor "`"$HOME\KiloathApp\notepad++\notepad++.exe`" -multiInst -notabbar -nosession -noPlugin"
+}
+
 Write-Host "--- 安裝 git ---"
 Install
+Setup
 Write-Host "--- 完成 git ---"
