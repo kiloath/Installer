@@ -5,7 +5,7 @@
 * git  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_git.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_git_latest.ps1 -useb).Content | iex
   ```
 # {1!} allinone
 * set_windows.ps2 (All User, 需要權限, 執行完後會重開機)  
@@ -25,8 +25,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_7zip.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_sarasa.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_notepad++.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_git.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_notepad++_latest.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_git_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tortoisegit.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1 -useb).Content | iex
 
@@ -53,7 +53,7 @@
   ```
 * (4) 執行安裝程式 (無需權限)
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_winmerge_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_rust.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_python.ps1 -useb).Content | iex
   ```
