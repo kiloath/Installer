@@ -2,7 +2,7 @@
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} 同捆包
-* git  
+* git 同捆包  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_git_latest.ps1 -useb).Content | iex
