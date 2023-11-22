@@ -27,7 +27,13 @@ function Install {
         return
     }
     $verParts = $latest_version.split('.')
-    $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2] + '.' + $verParts[4]
+    if($verParts[4] -eq "1")
+    {
+        $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2]
+    }
+    else {
+        $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2] + '.' + $verParts[4]
+    }
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v$latest_version/PortableGit-$version-64-bit.7z.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
