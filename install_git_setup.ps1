@@ -1,4 +1,6 @@
 function Setup {
+    git config --global http.sslVerify false
+    git config --global core.quotepath false
     git config --global diff.tool winmerge
     git config --global difftool.prompt false
     cmd /c "git config --global difftool.winmerge.cmd `"\`"$HOME\KiloathApp\winmerge\WinMergeU.exe\`" //wl \`"`$LOCAL\`" \`"`$REMOTE\`""
