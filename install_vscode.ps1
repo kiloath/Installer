@@ -14,9 +14,9 @@ function Install {
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "VSCode"
     $Target = Join-Path $Directory $DownloadFile
-	$BinDir = "$env:LOCALAPPDATA\Programs\Microsoft VS Code"
-    $BinExe = "$BinDir\Code.exe"
-	$AppName = "VSCode"
+	# $BinDir = "$env:LOCALAPPDATA\Programs\Microsoft VS Code"
+    # $BinExe = "$BinDir\Code.exe"
+	# $AppName = "VSCode"
 
     # (3) 下載 - - - - - - - - - - - (3) 下載 - - - - - - - - - - - (3) 下載 - - - - - - - - - - -
      # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
@@ -33,6 +33,7 @@ function Install {
     Start-Process -FilePath $Target -ArgumentList "/VERYSILENT /MERGETASKS=!runcode" -wait
 	# (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - -
     # 6.1 檔案
+    <#
     New-Item -Path HKCU:\SOFTWARE\Classes\*\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
     New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\*\shell\$AppName -Name "Icon" -Value "$BinExe" -Force | Out-Null
     New-Item -Path HKCU:\SOFTWARE\Classes\*\shell\$AppName\command -value """$BinExe"" ""%1""" -Force | Out-Null
@@ -40,9 +41,33 @@ function Install {
     New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
     New-ItemProperty -LiteralPath HKCU:\SOFTWARE\Classes\Directory\shell\$AppName -Name "Icon" -Value "$BinExe" -Force | Out-Null
     New-Item -Path HKCU:\SOFTWARE\Classes\Directory\shell\$AppName\command -value """$BinExe"" ""%V""" -Force | Out-Null
+    #>
+}
+function Setup {
+    <#
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $KiloathDir = Join-Path $HOME "KiloathApp"
+    $Directory = Join-Path $KiloathDir "FreeCommanderXE"
+    $Target = Join-Path $Directory ".vscode.zip"
+    $Download_fav_Url = "https://github.com/kiloath/Installer/raw/main/assets/.vscode.zip"
+    Invoke-WebRequest $Download_fav_Url -OutFile $Target -UseBasicParsing
+    Expand-Archive -Path $Target -DestinationPath $HOME -Force
+    #>
+    <#
+    $setting_argv_Path = "$HOME\.vscode\argv.json"
+    $settings = Get-Content $setting_argv_Path -raw | ConvertFrom-Json
+    $settings.profiles.defaults | add-member -Name "locale" -Value "zh-tw" -MemberType NoteProperty -Force
+    $settings | ConvertTo-Json -Depth 32 | Set-Content $setting_argv_Path -Encoding "UTF8"
+
+    $setting_argv_Path = "$HOME\.vscode\extensions\extensions.json"
+    $settings = Get-Content $setting_argv_Path -raw | ConvertFrom-Json
+    $settings.profiles.defaults | add-member -Name "locale" -Value "zh-tw" -MemberType NoteProperty -Force
+    $settings | ConvertTo-Json -Depth 32 | Set-Content $setting_argv_Path -Encoding "UTF8"
+    #>
 }
 
 Write-Host "--- 安裝 vscode ---"
 Install
+Setup
 Write-Host "--- 完成 vscode ---"
 

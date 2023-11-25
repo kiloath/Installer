@@ -36,5 +36,5 @@ $font = @"
    "face": "CaskaydiaCove Nerd Font Mono"
 }
 "@
-$settings.profiles.defaults | add-member -Name "font" -Value (ConvertFrom-Json -InputObject $font) -MemberType NoteProperty -Forc
+$settings.profiles.defaults | add-member -Name "font" -Value (ConvertFrom-Json -InputObject $font) -MemberType NoteProperty -Force
 $settings | ConvertTo-Json -Depth 32 | Set-Content $settingPath -Encoding "UTF8"
