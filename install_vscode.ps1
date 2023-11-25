@@ -6,7 +6,10 @@ function latest_version {
     $realTagUrl = $response.ResponseUri.OriginalString
     $GitHubversion = $realTagUrl.split('/')[-1]
     # return $GitHubversion
-    return $GitHubversion
+    $KiloathDir = Join-Path $HOME "KiloathApp"
+    $Directory = Join-Path $KiloathDir "VSCode"
+    $Target = Join-Path $Directory $GitHubversion
+    return $Target
 }
 function Install {
     $FileName = latest_version
@@ -44,6 +47,7 @@ function Install {
 }
 
 Write-Host "--- 安裝 vscode ---"
-Install
+# Install
+latest_version
 Write-Host "--- 完成 vscode ---"
 
