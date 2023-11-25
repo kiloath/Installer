@@ -3,6 +3,7 @@ if(Test-Path $setting_argv_Path) {
     $settings = (Get-Content $setting_argv_Path -raw) -replace '^\s*//.*' | ConvertFrom-Json
 }
 else {
+    New-Item $setting_argv_Path -Force -ItemType "file" | Out-Null
     $settings = @{}
 }
 $settings | add-member -Name "locale" -Value "zh-tw" -MemberType NoteProperty -Force
