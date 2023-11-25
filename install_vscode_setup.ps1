@@ -1,5 +1,4 @@
 $setting_argv_Path = "$HOME\.vscode\argv.json"
-$setting_argv_Path = "$HOME\test.json"
 if(Test-Path $setting_argv_Path) {
     $settings = (Get-Content $setting_argv_Path -raw) -replace '^\s*//.*' | ConvertFrom-Json
 }
