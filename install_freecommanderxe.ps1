@@ -15,6 +15,10 @@ function Install {
     $Shortcut = $WshShell.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\KiloathApp.lnk")
     $Shortcut.TargetPath = Join-Path $HOME "KiloathApp"
     $Shortcut.Save()
+    # ------------------------------------------------------------------
+    $Download_fav_Url = "https://github.com/kiloath/Installer/raw/main/assets/FreeCommander.fav.ini"
+    $Download_fav_Local = "$Directory/settings/FreeCommander.fav.ini"
+    Invoke-WebRequest $Download_fav_Url -OutFile $Download_fav_Local -UseBasicParsing
 }
 
 Install
