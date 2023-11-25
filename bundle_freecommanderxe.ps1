@@ -1,6 +1,6 @@
-Write-Host "= (01)/04 進度 git,notepad++,winmerge,git_setup ="
+Write-Host "= (01)/02 進度 vscode,freecommanderxe ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1" -UseBasicParsing).Content | Invoke-Expression
-Write-Host "= (02)/04 進度 notepad++,winmerge,git_setup ="
+Write-Host "= (02)/02 進度 freecommanderxe ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1" -UseBasicParsing).Content | Invoke-Expression
 function setup {
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

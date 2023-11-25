@@ -13,7 +13,7 @@ function Install {
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "VSCode"
-    $Target = Join-Path $Directory latest_version
+    $Target = Join-Path $Directory $latest_version
 	$BinDir = "$env:LOCALAPPDATA\Programs\Microsoft VS Code"
     $BinExe = "$BinDir\Code.exe"
 	$AppName = "VSCode"
@@ -30,7 +30,7 @@ function Install {
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     }
 	# (4) 安裝 - - - - -
-    Start-Process -FilePath "$Directory\VSCode-win32-x64.exe" -ArgumentList "/VERYSILENT /MERGETASKS=!runcode" -wait
+    Start-Process -FilePath $Target -ArgumentList "/VERYSILENT /MERGETASKS=!runcode" -wait
 	# (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - - (6) 設定右鍵功能 - - - - - - - - - -
     # 6.1 檔案
     New-Item -Path HKCU:\SOFTWARE\Classes\*\shell\$AppName -value "Kiloath $AppName" -Force | Out-Null
