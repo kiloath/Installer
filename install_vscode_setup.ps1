@@ -1,0 +1,4 @@
+$setting_argv_Path = "$HOME\.vscode\argv.json"
+$settings = Get-Content $setting_argv_Path -raw | ConvertFrom-Json
+$settings.profiles.defaults | add-member -Name "locale" -Value "zh-tw" -MemberType NoteProperty -Force
+$settings | ConvertTo-Json -Depth 32 | Set-Content $setting_argv_Path -Encoding "UTF8"
