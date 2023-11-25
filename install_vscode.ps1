@@ -4,20 +4,16 @@ function latest_version {
     $request = [System.Net.WebRequest]::Create($DownloadUrl)
     $response = $request.GetResponse()
     $realTagUrl = $response.ResponseUri.OriginalString
-    $GitHubversion = $realTagUrl.split('/')[-1]
-    # return $GitHubversion
-    $KiloathDir = Join-Path $HOME "KiloathApp"
-    $Directory = Join-Path $KiloathDir "VSCode"
-    $Target = Join-Path $Directory $GitHubversion
-    return $Target
+    $DownloadFile = $realTagUrl.split('/')[-1]
+    return $DownloadFile
 }
 function Install {
-    $FileName = latest_version
+    $DownloadFile = latest_version
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "VSCode"
-    $Target = Join-Path $Directory $FileName
+    $Target = Join-Path $Directory $DownloadFile
 	$BinDir = "$env:LOCALAPPDATA\Programs\Microsoft VS Code"
     $BinExe = "$BinDir\Code.exe"
 	$AppName = "VSCode"
@@ -47,7 +43,6 @@ function Install {
 }
 
 Write-Host "--- 安裝 vscode ---"
-# Install
-latest_version
+Install
 Write-Host "--- 完成 vscode ---"
 
