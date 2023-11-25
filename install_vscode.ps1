@@ -9,11 +9,12 @@ function latest_version {
     return $GitHubversion
 }
 function Install {
+    $FileName = latest_version
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "VSCode"
-    $Target = Join-Path $Directory $latest_version
+    $Target = Join-Path $Directory $FileName
 	$BinDir = "$env:LOCALAPPDATA\Programs\Microsoft VS Code"
     $BinExe = "$BinDir\Code.exe"
 	$AppName = "VSCode"
