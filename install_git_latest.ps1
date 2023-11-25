@@ -23,7 +23,7 @@ function Install {
     $current_version = current_version
     Write-Host "git: 你的版本: $current_version, 最新版本: $latest_version"
     if ( $latest_version -eq $current_version) {
-        Write-Host "你的 git 已是新版本!"
+        Write-Host "你的 git 已是最新版本!"
         return
     }
     $verParts = $latest_version.split('.')
