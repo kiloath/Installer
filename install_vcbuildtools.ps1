@@ -6,7 +6,7 @@ function Install {
     $Target = Join-Path $Directory "vs_buildtools.exe"
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
     if(Get-Item $Target -ErrorAction SilentlyContinue) {
-        Write-Host "你己下載安裝"
+        Write-Host "你已下載, 不再重複下載, 執行安裝。"
         return
     }
     else {
