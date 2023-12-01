@@ -1,7 +1,13 @@
 # 我在那裡?
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
-# {1!} 同捆包
+# {1!} 初始
+* set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
+  (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana
+   ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
+  ```
+# {2!} 同捆包
 * git 同捆包  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
   ```
@@ -12,18 +18,12 @@
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_freecommanderxe.ps1 -useb).Content | iex
   ```
-# {1!} allinone
-* set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
-  (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana
-   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
-  ```
 * allinone_dev.ps1 (By User, 不需權限)  
   7zr,7zip,vcbuildtools,sarasa,notepad++,vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_dev.ps1 -useb).Content | iex
   ```
-# {1!} 我的工具箱
+# {3!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7.ps1 -useb).Content | iex
@@ -71,9 +71,9 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_final.ps1 -useb).Content | iex
   ```
-# {2!} Youtube
+# {4!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
-# {3!} 小抄
+# {5!} 小抄
 * tls
   ```
   yarn config set "strict-ssl" false
