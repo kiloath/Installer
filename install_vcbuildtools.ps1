@@ -7,7 +7,7 @@ function Install {
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
     if(Get-Item $Target -ErrorAction SilentlyContinue) {
         Write-Host "你已下載, 不再重複下載, 執行安裝。"
-        return
+        # return
     }
     else {
         New-Item $Directory -Force -ItemType Directory | Out-Null
