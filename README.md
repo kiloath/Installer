@@ -10,7 +10,7 @@
 # {2!} Visual C++ 編譯環境安裝 (需要權限)
 * vcbuildtools
   ```
-  (iwr "https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1" -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1 -useb).Content | iex
   ```
 # {2!} 同捆包
 * git 同捆包  
