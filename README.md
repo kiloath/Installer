@@ -13,8 +13,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/bundle_freecommanderxe.ps1 -useb).Content | iex
   ```
 # {1!} allinone
-* set_windows.ps2 (All User, 需要權限, 執行完後會重開機)  
-  (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana, (3) 裝vcbuildtools
+* set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
+  (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana
    ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
   ```
