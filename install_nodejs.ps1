@@ -1,9 +1,9 @@
 function Install {
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
-    $DownloadUrl = "https://nodejs.org/dist/v20.8.0/node-v20.8.0-win-x64.zip"
+    $DownloadUrl = "https://nodejs.org/dist/v20.10.0/node-v20.10.0-win-x64.zip"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "nodejs"
-    $Target = Join-Path $Directory "node-v20.8.0-win-x64.zip"
+    $Target = Join-Path $Directory "node-v20.10.0-win-x64.zip"
     $BinDir = "$Directory\nodejs"
     # $BinExe = "$BinDir\dotnet.exe"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
@@ -15,6 +15,7 @@ function Install {
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
     if(($file = Get-Item $Target -ErrorAction SilentlyContinue) -And ($file.Length -eq 29819735)) {
         Write-Host "你已下載最新版"
+        return
     }
     else {
         New-Item $Directory -Force -ItemType Directory | Out-Null
@@ -27,8 +28,8 @@ function Install {
     If (Test-Path -Path $BinDir) {
          Remove-Item -Path $BinDir -Recurse -Force | Out-Null
     }
-    If (Test-Path -Path "$Directory\node-v20.8.0-win-x64") {
-         Rename-Item -Path "$Directory\node-v20.8.0-win-x64" -NewName nodejs -Force | Out-Null
+    If (Test-Path -Path "$Directory\node-v20.10.0-win-x64") {
+         Rename-Item -Path "$Directory\node-v20.10.0-win-x64" -NewName nodejs -Force | Out-Null
     }
     # (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - -
     # <#
