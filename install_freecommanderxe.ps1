@@ -17,5 +17,7 @@ function Install {
     $Shortcut.Save() 
 }
 
+Write-Host "--- 安裝 FreeCommander ---"
+Write-Host "我不會知道是否有新版, 所以總是安裝。"
 Install
-# 建議訂選至工作列
+Write-Host "--- 完成 FreeCommander ---"
