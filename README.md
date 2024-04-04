@@ -12,7 +12,12 @@
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1 -useb).Content | iex
   ```
-# {2!} 同捆包
+# {3!} 需要權限
+* docker
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_docker.ps1 -useb).Content | iex
+  ```
+# {4!} 同捆包
 * git 同捆包  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
   ```
@@ -28,7 +33,7 @@
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/allinone_dev.ps1 -useb).Content | iex
   ```
-# {3!} 我的工具箱
+# {5!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7.ps1 -useb).Content | iex
@@ -77,9 +82,9 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_final.ps1 -useb).Content | iex
   ```
-# {4!} Youtube
+# {6!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
-# {5!} 小抄
+# {7!} 小抄
 * tls
   ```
   yarn config set "strict-ssl" false
