@@ -19,7 +19,6 @@ function current_version {
 
 function Install {
     $latest_version = latest_version
-    $latest_version = latest_version
     $current_version = current_version
     Write-Host "git: 你的版本: $current_version, 最新版本: $latest_version"
     if ( $latest_version -eq $current_version) {
