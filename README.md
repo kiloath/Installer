@@ -83,9 +83,15 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_powershell7.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_final.ps1 -useb).Content | iex
   ```
-# {6!} Youtube
+# {6!} Dockerfile
+  ```
+  iwr -ou Dockerfile_spin https://raw.githubusercontent.com/kiloath/Installer/main/Dockerfile_spin -useb && docker build
+ -t kospin -f Dockerfile_spin .
+  ```
+# {7!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
-# {7!} 小抄
+
+# {8!} 小抄
 * tls
   ```
   yarn config set "strict-ssl" false
