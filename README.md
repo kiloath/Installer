@@ -44,7 +44,7 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_git_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tortoisegit.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1 -useb).Content | iex
-
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powertoys.ps1 -useb).Content | iex
   ```
 * (2) 開發必備 (無需權限)
   ```
