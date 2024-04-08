@@ -11,9 +11,6 @@ function Install {
         return
     }
     else {
-        Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-        Enable-WindowsOptionalFeature -Online -FeatureName containers -All
-
         New-Item $Directory -Force -ItemType Directory | Out-Null
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
