@@ -1,6 +1,11 @@
 # 我在那裡?
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
+# {1!} 你也許需要
+* 執行install前, 可能因為憑證被置換了, 故先執行以下跳過SSL檢查。
+  ```
+  [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+  ```
 # {1!} 初始
 * set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
   (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana
