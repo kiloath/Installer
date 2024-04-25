@@ -1,5 +1,5 @@
 function latest_version {
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    # [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $DownloadUrl = "https://github.com/PowerShell/PowerShell/releases/latest"
     $request = [System.Net.WebRequest]::Create($DownloadUrl)
     $response = $request.GetResponse()
