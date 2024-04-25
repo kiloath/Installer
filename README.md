@@ -41,7 +41,7 @@
 # {5!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_7zip.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_sarasa.ps1 -useb).Content | iex

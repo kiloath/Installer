@@ -25,7 +25,7 @@ function Install {
     else {
         New-Item $Directory -Force -ItemType Directory | Out-Null
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
+        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     }
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
     Expand-Archive -Path $Target -DestinationPath $Directory -Force

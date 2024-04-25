@@ -11,7 +11,7 @@ Write-Host "= (05)/15 進度 notepad++,vscode,powershell7,git,tortoisegit,winmer
 Write-Host "= (06)/15 進度 vscode,powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1" -UseBasicParsing).Content | Invoke-Expression
 Write-Host "= (07)/15 進度 powershell7,git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
-(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7.ps1" -UseBasicParsing).Content | Invoke-Expression
+(Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_powershell7_latest.ps1" -UseBasicParsing).Content | Invoke-Expression
 Write-Host "= (08)/15 進度 git,tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
 (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_git.ps1" -UseBasicParsing).Content | Invoke-Expression
 Write-Host "= (09)/15 進度 tortoisegit,winmerge,rust,conan,net8sdk,nodejs,python ="
