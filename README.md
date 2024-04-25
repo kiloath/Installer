@@ -110,3 +110,7 @@
   RUN yarn config set "strict-ssl" false 
   RUN npm config set strict-ssl false
   ```
+# {9!} 參數
+```
+(iwr https://raw.githubusercontent.com/kiloath/Installer/main/echo.ps1 -useb).Content -replace '\[string\]\$name.*','[string]$name="kiloath"' | iex
+```
