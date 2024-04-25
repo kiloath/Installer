@@ -1,4 +1,5 @@
 # kiloath #
+$SSLCallback = [System.Net.ServicePointManager]::ServerCertificateValidationCallback
 [System.Console]::OutputEncoding=[System.Text.Encoding]::GetEncoding(65001)
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
