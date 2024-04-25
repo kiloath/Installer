@@ -1,5 +1,5 @@
 function latest_version {
-    # [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $DownloadUrl = "https://github.com/PowerShell/PowerShell/releases/latest"
     $request = [System.Net.WebRequest]::Create($DownloadUrl)
     $response = $request.GetResponse()
@@ -57,5 +57,7 @@ function Install {
 }
 
 Write-Host "--- 安裝 powershell7 ---"
+IF (Test-Path variable:SSLCallback) {[System.Net.ServicePointManager]::ServerCertificateValidationCallback=$SSLCallback}
 Install
+IF (Test-Path variable:SSLCallback) {[System.Net.ServicePointManager]::ServerCertificateValidationCallback={$true}}
 Write-Host "--- 完成 powershell7 ---"
