@@ -21,4 +21,5 @@ function kocmd()
 {
     Start-Process -FilePath "$HOME\KiloathApp\FreeCommanderXE\FreeCommander.exe" -ArgumentList "/T $pwd"
 }
+IF((Get-Location).Path -eq "$ENV:WINDIR\System32"){Set-Location $HOME}
 # kiloath #
