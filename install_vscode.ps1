@@ -81,5 +81,6 @@ function Setup {
 Write-Host "--- 安裝 vscode ---"
 Install
 Setup
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 Write-Host "--- 完成 vscode ---"
 
