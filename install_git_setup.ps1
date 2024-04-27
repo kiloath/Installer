@@ -1,4 +1,6 @@
 function Setup {
+    git config --global user.name Kiloath
+    git config --global user.email kiloath@outlook.com
     git config --global http.sslVerify false
     git config --global core.quotepath false
     git config --global diff.tool winmerge
