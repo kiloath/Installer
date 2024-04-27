@@ -5,9 +5,20 @@ function latest_version {
     $response = $request.GetResponse()
     $realTagUrl = $response.ResponseUri.OriginalString
     $DownloadFile = $realTagUrl.split('/')[-1]
-    return $DownloadFile
+    $version = $DownloadFile.Split('-')[-1].Trim('.exe')
+    return return [System.Version]$version
+}
+function current_version {
+    if (-not (Get-Command "code.exe" -ErrorAction SilentlyContinue)) {
+        return [System.Version]"0.0.0"
+    }
+    else {
+        return [System.Version]$(code --version | Select-Object -First 1)
+    }
 }
 function Install {
+    $latest_version = latest_version
+    $latest_version = current_version
     $DownloadFile = latest_version
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
@@ -20,7 +31,8 @@ function Install {
 
     # (3) 下載 - - - - - - - - - - - (3) 下載 - - - - - - - - - - - (3) 下載 - - - - - - - - - - -
      # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
-     if(Get-Item $Target -ErrorAction SilentlyContinue) {
+    Write-Host "你的版本: $current_version, 最新版本: $latest_version"
+    if($latest_version -eq $current_version) {
         Write-Host "你的 Visual Studio Code 已是最新版本!"
         return
     }
