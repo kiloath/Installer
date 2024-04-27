@@ -27,6 +27,7 @@ $Download_kiloath_omp_json_Url = "https://github.com/kiloath/Installer/raw/main/
 $Download_kiloath_omp_json_Local = "$env:POSH_THEMES_PATH\kiloath.omp.json"
 Invoke-WebRequest $Download_kiloath_omp_json_Url -OutFile $Download_kiloath_omp_json_Local -UseBasicParsing
 
+gsudo
 oh-my-posh font install CascadiaCode --user
 
 $settingPath = "$env:localappdata\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
