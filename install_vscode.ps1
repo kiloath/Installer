@@ -5,8 +5,7 @@ function latest_version {
     $response = $request.GetResponse()
     $realTagUrl = $response.ResponseUri.OriginalString
     $DownloadFile = $realTagUrl.split('/')[-1]
-    $version = $DownloadFile.Split('-')[-1].Trim('.exe')
-    return [System.Version]$version
+    return $DownloadFile
 }
 function current_version {
     if (-not (Get-Command "code.exe" -ErrorAction SilentlyContinue)) {
@@ -17,9 +16,10 @@ function current_version {
     }
 }
 function Install {
-    $latest_version = latest_version
-    $current_version = current_version
     $DownloadFile = latest_version
+    $latest_version = [System.Version]$DownloadFile.Split('-')[-1].Trim('.exe')
+    $current_version = current_version
+    
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
     $KiloathDir = Join-Path $HOME "KiloathApp"
