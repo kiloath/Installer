@@ -6,7 +6,7 @@ function latest_version {
     $realTagUrl = $response.ResponseUri.OriginalString
     $DownloadFile = $realTagUrl.split('/')[-1]
     $version = $DownloadFile.Split('-')[-1].Trim('.exe')
-    return return [System.Version]$version
+    return [System.Version]$version
 }
 function current_version {
     if (-not (Get-Command "code.exe" -ErrorAction SilentlyContinue)) {
