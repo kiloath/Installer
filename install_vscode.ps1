@@ -18,7 +18,7 @@ function current_version {
 }
 function Install {
     $latest_version = latest_version
-    $latest_version = current_version
+    $current_version = current_version
     $DownloadFile = latest_version
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
     $DownloadUrl = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
