@@ -23,10 +23,10 @@ function Install {
     if ( $latest_version -gt $current_version)
     {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        $DownloadUrl = "https://github.com/conan-io/conan/releases/latest/download/conan-win-64.zip"
+        $DownloadUrl = "https://github.com/conan-io/conan/releases/download/$latest_version/conan-$latest_version-windows-x86_64.zip"
         $KiloathDir = Join-Path $HOME "KiloathApp"
         $Directory = Join-Path $KiloathDir "conan"
-        $Target = Join-Path $Directory "conan-win-64.zip"
+        $Target = Join-Path $Directory "conan-$latest_version-windows-x86_64.zip"
         New-Item $Directory -Force -ItemType Directory | Out-Null
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
         Expand-Archive -Path $Target -DestinationPath $Directory -Force

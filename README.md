@@ -54,7 +54,7 @@
 * (2) 開發必備 (無需權限)
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_conan.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_conan_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_dbeaver.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_doxygen.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_ruby.ps1 -useb).Content | iex
@@ -90,7 +90,8 @@
   ```
 * (7) 安裝 net8 desktop runtime
   ```
-  (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' | iex
+ (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' -replace '\[string\]\$Version="Latest"','[string]$Version="7.0.18"' | iex
+ (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' | iex
   ```
 # {6!} Dockerfile
   ```
