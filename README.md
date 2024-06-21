@@ -50,6 +50,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tortoisegit.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powertoys.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_synologychat.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_synologychat.ps1/raw?ref=main | iex
   ```
 * (2) 開發必備 (無需權限)
   ```
