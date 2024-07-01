@@ -86,7 +86,7 @@ EOF
     NVM_SOURCE_URL="https://raw.githubusercontent.com/${NVM_GITHUB_REPO}/${NVM_VERSION}/bash_completion"
   elif [ -z "$NVM_SOURCE_URL" ]; then
     if [ "_$NVM_METHOD" = "_script" ]; then
-      NVM_SOURCE_URL="https://gitlab.com/api/v4/projects/58360840/repository/files/nvm.sh/raw?ref=main"
+      NVM_SOURCE_URL="https://gitlab.com/api/v4/projects/58360840/repository/files/nvm.sh/raw"
     elif [ "_$NVM_METHOD" = "_git" ] || [ -z "$NVM_METHOD" ]; then
       NVM_SOURCE_URL="https://github.com/${NVM_GITHUB_REPO}.git"
     else
