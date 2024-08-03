@@ -13,9 +13,9 @@ function Install {
         New-Item $Directory -Force -ItemType Directory | Out-Null
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-        Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --lang en-US --passive" -wait
+        Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --add Microsoft.VisualStudio.Component.VC.ATLMFC --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --lang en-US --lang zh-TW --passive" -wait
     }
-    Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--noWeb --wait --passive --add Microsoft.VisualStudio.Component.VC.ATLMFC --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.Llvm.Clang" -wait
+    Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--noWeb --wait --passive" -wait
     $BinDir = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
     $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
