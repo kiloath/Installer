@@ -27,6 +27,10 @@
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_docker.ps1 -useb).Content | iex
   ```
+* Rancher Desktop
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_rancherdesktop_latest.ps1 -useb).Content | iex
+  ```
 # {4!} 同捆包
 * git 同捆包  
 (1) git, (2) notepad++, (3) winmerge, (4) git_setup
