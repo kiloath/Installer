@@ -12,10 +12,15 @@
    ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/set_windows.ps1 -useb).Content | iex
   ```
-# {2!} Visual C++ 編譯環境安裝 (需要權限)
+# {2!} Visual C++ 編譯環境安裝 (需要安裝權限)
 * vcbuildtools
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vcbuildtools.ps1 -useb).Content | iex
+  ```
+# {3!} Visual Studio 2022 Community (需要安裝權限)
+* Visual Studio 2022 Community
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vs2022community.ps1 -useb).Content | iex
   ```
 # {3!} 需要權限
 * docker
