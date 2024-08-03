@@ -13,7 +13,7 @@ function Install {
         New-Item $Directory -Force -ItemType Directory | Out-Null
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-        Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeOptional --lang en-US --passive" -wait
+        Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop ----includeRecommended --includeOptional --lang en-US --passive" -wait
     }
     Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--passive" -wait
     $BinDir = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
