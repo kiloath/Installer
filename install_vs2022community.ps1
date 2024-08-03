@@ -15,7 +15,7 @@ function Install {
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
         Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --lang en-US --passive" -wait
     }
-    Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --lang en-US --passive" -wait
+    Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--noWeb --wait --passive" -wait
     $BinDir = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
     $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
