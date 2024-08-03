@@ -24,7 +24,7 @@ function Install {
         New-Item $Directory -Force -ItemType Directory | Out-Null
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
-        Start-Process -FilePath $Target -wait
+        Start-Process -FilePath $Target -ArgumentList "/quiet" -wait
     }
 }
 
