@@ -85,7 +85,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_shotcut_v22.ps1 -useb).Content | iex
    (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_shotcut_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_sizer4.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vidcoder.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vidcoder_latest.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_vidcoder_latest.ps1/raw?ref=main | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_zoomit.ps1 -useb).Content | iex
   ```
 * (4) 執行安裝程式 (無需權限)
