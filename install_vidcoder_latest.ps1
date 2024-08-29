@@ -15,6 +15,7 @@ function Install {
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "VidCoder"
     $Target = Join-Path $Directory "VidCoder-$latest_version-Portable.exe"
+    $BinExe = $Target
     $AppName = "VidCoder"
       # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
       if(Get-Item $Target -ErrorAction SilentlyContinue) {
