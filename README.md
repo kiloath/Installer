@@ -57,7 +57,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_notepad++_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_git_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tortoisegit.ps1 -useb).Content | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_freecommanderxe_always.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_freecommanderxe_always.ps1/raw?ref=main | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_powertoys.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_synologychat.ps1 -useb).Content | iex
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_synologychat.ps1/raw | iex
@@ -83,7 +84,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_paintnet.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_sharex_latest.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_shotcut_v22.ps1 -useb).Content | iex
-   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_shotcut_latest.ps1 -useb).Content | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_shotcut_latest.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_shotcut_latest.ps1/raw?ref=main | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_sizer4.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vidcoder_latest.ps1 -useb).Content | iex
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_vidcoder_latest.ps1/raw?ref=main | iex
