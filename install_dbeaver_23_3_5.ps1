@@ -1,9 +1,10 @@
 function Install {
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $DownloadUrl = "https://dbeaver.io/files/24.2.0/dbeaver-ce-24.2.0-win32.win32.x86_64.zip"
+    # 24版有權限問題, 故不採用
+    $DownloadUrl = "https://github.com/dbeaver/dbeaver/releases/download/23.3.5/dbeaver-ce-23.3.5-win32.win32.x86_64.zip"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "DBeaver"
-    $Target = Join-Path $Directory "dbeaver-ce-24.2.0-win32.win32.x86_64.zip"
+    $Target = Join-Path $Directory "dbeaver-ce-23.3.5-win32.win32.x86_64.zip"
     New-Item $Directory -Force -ItemType Directory | Out-Null
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     Expand-Archive -Path $Target -DestinationPath $Directory -Force

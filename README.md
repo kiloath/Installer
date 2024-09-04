@@ -71,8 +71,8 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_conan_latest.ps1 -useb).Content | iex
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_conan_latest.ps1/raw?ref=main | iex
-  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_dbeaver_24_2_0.ps1 -useb).Content | iex
-  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_dbeaver_24_2_0.ps1/raw?ref=main | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_dbeaver_23_3_5.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_dbeaver_23_3_5.ps1/raw?ref=main | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_doxygen.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_ruby.ps1 -useb).Content | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_net8sdk.ps1 -useb).Content | iex
