@@ -30,6 +30,7 @@
 * Rancher Desktop
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_rancherdesktop_latest.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_rancherdesktop_latest.ps1/raw?ref=main | iex
   ```
 # {4!} 同捆包
 * git 同捆包  
