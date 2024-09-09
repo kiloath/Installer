@@ -8,8 +8,8 @@
   ```
 * 匯出憑證
 ```
-(iwr https://raw.githubusercontent.com/kiloath/Installer/main/export.crt.ps1 -useb).Content | iex
-irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/export.crt.ps1/raw?ref=main | iex
+(iwr https://raw.githubusercontent.com/kiloath/Installer/main/export_crt.ps1 -useb).Content | iex
+irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/export_crt.ps1/raw?ref=main | iex
 ```
 # {1!} 初始
 * set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
