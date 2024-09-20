@@ -14,8 +14,8 @@ function Install {
     $DownloadUrl = "https://github.com/d2phap/ImageGlass/releases/download/$latest_version/ImageGlass_${latest_version}_x64.zip"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "ImageGlass"
-    $Target = Join-Path $Directory "ImageGlass_$latest_version_x64.zip"
-    $BinDir = "$Directory"
+    $Target = Join-Path $Directory "ImageGlass_${latest_version}_x64.zip"
+    $BinDir = Join-Path $Directory "ImageGlass_${latest_version}_x64"
     $BinExe = "$BinDir\ImageGlass.exe"
 
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
