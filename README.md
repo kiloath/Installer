@@ -71,6 +71,8 @@ irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/export_crt
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_dotnet-install.ps1 -useb).Content | iex
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_dotnet-install.ps1/raw | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_tiddlydesktop_latest.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_dotinstall_imageglass_latest.ps1/raw | iex
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_imageglass_latest.ps1 -useb).Content | iex
   ```
 * (2) 開發必備 (無需權限)
   ```
