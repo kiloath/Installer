@@ -74,6 +74,11 @@ irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/export_crt
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_imageglass_latest.ps1 -useb).Content | iex
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_imageglass_latest.ps1/raw | iex
   ```
+* (2) 多媒體 (Portable)
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_krita.ps1 -useb).Content | iex
+  irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_krita.ps1/raw | iex
+  ```
 * (2) 開發必備 (無需權限)
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/install_vscode.ps1 -useb).Content | iex
