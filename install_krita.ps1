@@ -4,7 +4,7 @@ function Install {
     $DownloadUrl = "https://download.kde.org/stable/krita/5.2.3/$DownloadFile"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "Krita"
-    $Target = Join-Path $Directory $DowloadFile
+    $Target = Join-Path $Directory $DownloadFile
     New-Item $Directory -Force -ItemType Directory | Out-Null
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     Expand-Archive -Path $Target -DestinationPath $Directory -Force
