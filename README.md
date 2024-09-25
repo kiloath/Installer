@@ -2,16 +2,13 @@
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
 # {1!} 指令
+* 指令
   ```
   $ps='' # 請先設定命令
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/$ps/raw | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/$ps -useb).Content | iex
   ```
 # {2!} 只有我才用的到
-* 執行install前, 先執行以下跳過SSL檢查。
-  ```
-  [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
-  ```
 * 匯出憑證
   ```
   $ps='export_crt.ps1'
@@ -102,13 +99,13 @@
   ```
 * (7) 安裝 net8 desktop runtime
   ```
- (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' -replace '\[string\]\$Version="Latest"','[string]$Version="7.0.18"' | iex
- (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' | iex
+  (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' -replace '\[string\]\$Version="Latest"','[string]$Version="7.0.18"' | iex
+  (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' | iex
   ```
 # {6!} Dockerfile
+* Dockerfile
   ```
-  iwr -ou Dockerfile_spin https://raw.githubusercontent.com/kiloath/Installer/main/Dockerfile_spin -useb && docker build
- -t kospin -f Dockerfile_spin .
+  iwr -ou Dockerfile_spin https://raw.githubusercontent.com/kiloath/Installer/main/Dockerfile_spin -useb && docker build -t kospin -f Dockerfile_spin .
   ```
 # {7!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
@@ -128,6 +125,11 @@
   RUN npm config set strict-ssl false
   ```
 # {9!} 參數
-```
-(iwr https://raw.githubusercontent.com/kiloath/Installer/main/echo.ps1 -useb).Content -replace '\[string\]\$name.*','[string]$name="kiloath"' | iex
-```
+  ```
+  (iwr https://raw.githubusercontent.com/kiloath/Installer/main/echo.ps1 -useb).Content -replace '\[string\]\$name.*','[string]$name="kiloath"' | iex
+  ```
+# {10!} 遺產
+* 執行install前, 先執行以下跳過SSL檢查。(都會有憑證所以不需要了)
+  ```
+  [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+  ```
