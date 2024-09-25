@@ -61,6 +61,7 @@
 * (2) 多媒體 (Portable)
   ```
   $ps='install_sharex_latest.ps1'   # 抓圖及錄桌面
+  $ps='install_obs.ps1'             # 專業錄桌面
   $ps='install_krita.ps1'           # 繪圖
   $ps='install_drawio_latest.ps1'   # 向量流程圖
   $ps='install_shotcut_latest.ps1'  # 影像編輯
