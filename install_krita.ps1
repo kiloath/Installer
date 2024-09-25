@@ -3,7 +3,7 @@ function Install {
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $DownloadUrl = "https://download.kde.org/stable/krita/5.2.3/$DownloadFile"
     $KiloathDir = Join-Path $HOME "KiloathApp"
-    $Directory = Join-Path $KiloathDir "krita"
+    $Directory = Join-Path $KiloathDir "Krita"
     $Target = Join-Path $Directory $DowloadFile
     New-Item $Directory -Force -ItemType Directory | Out-Null
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
@@ -20,3 +20,6 @@ function Install {
 
 Install
 # 建議訂選至工作列
+Write-Host "--- 安裝 Krita ---"
+Install
+Write-Host "--- 完成 Krita ---"
