@@ -12,6 +12,7 @@ function Install {
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$KiloathDir\obs.lnk")
     $Shortcut.TargetPath = "$BinDir\obs64.exe"
+    $Shortcut.WorkingDirectory = $BinDir
     $Shortcut.Save()
     $Shortcut = $WshShell.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\KiloathApp.lnk")
     $Shortcut.TargetPath = Join-Path $HOME "KiloathApp"
