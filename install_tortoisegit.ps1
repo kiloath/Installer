@@ -1,9 +1,10 @@
 function Install {
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
-    $DownloadUrl = "https://download.tortoisegit.org/tgit/2.15.0.0/TortoiseGit-2.15.0.0-64bit.msi"
+    $Version = "2.16.0.0"
+    $DownloadUrl = "https://download.tortoisegit.org/tgit/$Version/TortoiseGit-$Version-64bit.msi"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "TortoiseGit"
-    $Target = Join-Path $Directory "TortoiseGit-2.15.0.0-64bit.msi"
+    $Target = Join-Path $Directory "TortoiseGit-$Version-64bit.msi"
     $BinDir = "$Directory\TortoiseGit"
     $BinExe = "$BinDir\Program Files\TortoiseGit\bin\TortoiseGitProc.exe"
     $AppName = "Tortoise"
