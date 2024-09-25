@@ -18,7 +18,6 @@ function Install {
     $Shortcut.Save()
 }
 
-Install
 # 建議訂選至工作列
 Write-Host "--- 安裝 Krita ---"
 Install
