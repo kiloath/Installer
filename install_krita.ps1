@@ -1,10 +1,10 @@
 function Install {
-    $DownloadFile = "krita-x64-5.2.3"
+    $Version = "5.2.5"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $DownloadUrl = "https://download.kde.org/stable/krita/5.2.3/$DownloadFile.zip"
+    $DownloadUrl = "https://download.kde.org/stable/krita/$Version/krita-$Version.zip"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "Krita"
-    $Target = Join-Path $Directory "$DownloadFile.zip"
+    $Target = Join-Path $Directory "krita-$Version.zip"
     New-Item $Directory -Force -ItemType Directory | Out-Null
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
     Expand-Archive -Path $Target -DestinationPath $Directory -Force
