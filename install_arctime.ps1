@@ -18,7 +18,7 @@ function Install {
         (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
     }
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
-    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory\temp"" -y" | Out-Null
+    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory\temp"" -y" -wait | Out-Null
     $BinDir = $(Get-ChildItem "$Directory\temp" | Select-Object -First 1).Name
     Copy-Item -Path "$Directory\temp\*" -Destination $Directory -Recurse -Force
     Remove-Item -Path "$Directory\temp" -Recurse -Force
