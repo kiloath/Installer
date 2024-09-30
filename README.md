@@ -64,6 +64,7 @@
   $ps='install_shotcut_latest.ps1'  # 影像編輯
   $ps='install_shotcut_v22.ps1'     # 支援雙螢幕
   $ps='install_vidcoder_latest.ps1' # 影片壓縮
+  $ps='install_arctime.ps1'         # 字幕
   $ps='install_paintnet.ps1'        # paint.net(我用krita)
   ```
 * (2) 開發必備 (無需權限)
