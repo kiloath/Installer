@@ -44,33 +44,34 @@
   $ps='install_powershell7_latest.ps1'
   $ps='install_7zr.ps1'
   $ps='install_7zip.ps1'
-  $ps='install_sarasa.ps1'
-  $ps='install_notepad++_latest.ps1'
   $ps='install_git_latest.ps1'
   $ps='install_tortoisegit.ps1'
   $ps='install_freecommanderxe_always.ps1'
   $ps='install_powertoys.ps1'
   $ps='install_synologychat.ps1'
   $ps='install_dotnet-install.ps1'
-  $ps='install_tiddlydesktop_latest.ps1'
-  $ps='install_imageglass_latest.ps1'
   ```
 * (2) 多媒體 (Portable)
   ```
-  $ps='install_sharex_latest.ps1'       # 抓圖及錄桌面
-  $ps='install_obs.ps1'                 # 專業錄桌面
-  $ps='install_krita.ps1'               # 繪圖
-  $ps='install_drawio_latest.ps1'       # 向量流程圖
-  $ps='install_shotcut_latest.ps1'      # 影像編輯
-  $ps='install_shotcut_v22.ps1'         # 支援雙螢幕
-  $ps='install_vidcoder_latest.ps1'     # 影片壓縮
-  $ps='install_arctime.ps1'             # 字幕
-  $v='3.0.21';$ps='install_vlc.ps1'     # 播放器
-  $ps='install_paintnet.ps1'            # paint.net(我用krita)
+  $ps='install_sharex_latest.ps1'        # 抓圖及錄桌面
+  $ps='install_obs.ps1'                  # 專業錄桌面
+  $ps='install_krita.ps1'                # 繪圖
+  $ps='install_imageglass_latest.ps1'    # 秀圖
+  $ps='install_drawio_latest.ps1'        # 向量流程圖
+  $ps='install_shotcut_latest.ps1'       # 影像編輯
+  $ps='install_shotcut_v22.ps1'          # 支援雙螢幕
+  $ps='install_vidcoder_latest.ps1'      # 影片壓縮
+  $ps='install_arctime.ps1'              # 字幕
+  $v='3.0.21';$ps='install_vlc.ps1'      # 播放器
+  $ps='install_notepad++_latest.ps1'     # 文字編輯器
+  $ps='install_sarasa.ps1'               # 更紗黑體
+  $ps='install_tiddlydesktop_latest.ps1' # TiddlyWiki 編輯器
+  $ps='install_logseq_latest.ps1'        # logseq 編輯器
+  $ps='install_vscode.ps1'               # Visual Studio Code
+  $ps='install_paintnet.ps1'             # paint.net(我用krita)
   ```
 * (2) 開發必備 (無需權限)
   ```
-  $ps='install_vscode.ps1' # Visual Studio Code
   $ps='install_conan_latest.ps1' # C++
   $ps='install_dbeaver_23_3_5.ps1' # 資料庫管理
   $ps='install_doxygen.ps1' # C++ 文件製作
