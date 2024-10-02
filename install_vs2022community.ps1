@@ -17,7 +17,8 @@ function Install {
         Start-Process -FilePath "$Target" -ArgumentList `
         "--layout $Directory\VSlayout " +
         "--add Microsoft.VisualStudio.Workload.NativeDesktop;includeRecommended " +
-        "--lang en-US --lang zh-TW --passive" -wait
+        "--lang en-US --lang zh-TW --passive" `
+        -wait
     }
     Start-Process -FilePath "$Directory\VSlayout\vs_setup.exe" -ArgumentList "--noWeb --wait --passive" -wait
     $BinDir = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
