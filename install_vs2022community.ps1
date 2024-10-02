@@ -14,8 +14,8 @@ function Install {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing
         # Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop; --includeRecommended --includeOptional --add Microsoft.VisualStudio.Component.VC.ATLMFC --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --lang en-US --lang zh-TW --passive" -wait
-        Start-Process -FilePath "$Target" -wait -ArgumentList `
-        "--layout $Directory\VSlayout " +
+        Start-Process -FilePath "$Target" -wait `
+        -ArgumentList "--layout $Directory\VSlayout " +
         "--add Microsoft.VisualStudio.Workload.NativeDesktop;includeRecommended " +
         "--lang en-US --lang zh-TW --passive"
     }
