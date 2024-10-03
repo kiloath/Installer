@@ -41,7 +41,8 @@
 # {6!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
-  $ps='install_powershell7_latest.ps1'
+  $ps='install_powershell7_latest.ps1' # powershell 7
+  $ps='install_powershell7_setup.ps1'  # powershell 7 客製
   $ps='install_7zr.ps1'
   $ps='install_7zip.ps1'
   $ps='install_git_latest.ps1'
@@ -97,7 +98,6 @@
   ```
 * (6) 設定
   ```
-  $ps='set_powershell7.ps1'
   $ps='set_final.ps1'
   ```
 * (7) 安裝 net8 desktop runtime
