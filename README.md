@@ -2,12 +2,12 @@
 * [我在這裡](https://kiloath.github.io/Installer/)
 * [倉庫](https://github.com/kiloath/Installer)
 
-# {1!} 我的最愛
+## {1!} 我的最愛
 * [零度解说](https://www.youtube.com/@零度解说)
 * [PAPAYA 電腦教室](https://www.youtube.com/@papayaclass)
 * [小友玩電腦](https://www.youtube.com/@youplaycomputer)
 
-# {2!} 網路資源
+## {2!} 網路資源
 * [Windows 自動安裝](https://schneegans.de/windows/unattend-generator/)
 
 ## {3!} 安裝指令
@@ -17,17 +17,20 @@
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/$ps/raw | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/$ps -useb).Content | iex
   ```
+
 ## {4!} 只有我才用的到
 * 匯出憑證
   ```
   $ps='export_crt.ps1'
   ```
+
 ## {5!} 初始
 * set_windows.ps1 (All User, 需要權限, 執行完後會重開機)  
   (1) 關其他選項 (2) 關UAC, (3) 裝gsudo, (4) 移除 Cortana
   ```
   $ps='set_windows.ps1'
   ```
+
 ## {6!} 需要權限
 * 需要權限
   ```
@@ -36,6 +39,7 @@
   $ps='install_docker.ps1'                # docker
   $ps='install_rancherdesktop_latest.ps1' # Rancher Desktop
   ```
+
 ## {7!} 同捆包
 * 同捆包  
   ```
@@ -47,6 +51,7 @@
   ```
   $ps='allinone_dev.ps1'
   ```
+
 ## {8!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
@@ -114,11 +119,13 @@
   (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' -replace '\[string\]\$Version="Latest"','[string]$Version="7.0.18"' | iex
   (iwr https://raw.githubusercontent.com/dotnet/install-scripts/main/src/dotnet-install.ps1 -useb).Content -replace '\[string\]\$Runtime,','[string]$Runtime="windowsdesktop",' | iex
   ```
+
 ## {9!} Dockerfile
 * Dockerfile
   ```
   iwr -ou Dockerfile_spin https://raw.githubusercontent.com/kiloath/Installer/main/Dockerfile_spin -useb && docker build -t kospin -f Dockerfile_spin .
   ```
+
 ## {10!} Youtube
 * (1) [install_notepad++](https://youtu.be/iOaF_fMTBmE)
 
@@ -136,10 +143,12 @@
   RUN yarn config set "strict-ssl" false 
   RUN npm config set strict-ssl false
   ```
+
 ## {12!} 參數
   ```
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/echo.ps1 -useb).Content -replace '\[string\]\$name.*','[string]$name="kiloath"' | iex
   ```
+
 ## {13!} 遺產
 * 執行install前, 先執行以下跳過SSL檢查。(都會有憑證所以不需要了)
   ```
