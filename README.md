@@ -55,6 +55,7 @@
 ## {8!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
+  $ps='install_anyburn_always.ps1"     # AnyBurn
   $ps='install_powershell7_latest.ps1' # powershell 7
   $ps='install_powershell7_setup.ps1'  # powershell 7 客製
   $ps='install_7zr.ps1'
