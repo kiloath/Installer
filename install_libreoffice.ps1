@@ -11,6 +11,7 @@ function Install {
     if (-not (Get-Command "7z.exe" -ErrorAction SilentlyContinue)) {
         Invoke-RestMethod -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_7zip.ps1/raw | Invoke-Expression
     }
+    $env:Path = [Environment]::GetEnvironmentVariable("Path", "User")
 
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
     if(Get-Item $Target -ErrorAction SilentlyContinue) {
