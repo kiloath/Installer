@@ -2,7 +2,7 @@ function Install {
     if(-not$v) { '請設定參數$v';return }
     $Version = $v
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
-    $DownloadUrl = "https://download.documentfoundation.org/libreoffice/portable/$Version/LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
+    $DownloadUrl = "https://download.documentfoundation.org/libreoffice/portable/$Version/LibreOfficePortable_${Version}_MultilingualAll.paf.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "LibreOffice"
     $Target = Join-Path $Directory "LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
@@ -11,7 +11,6 @@ function Install {
     if (-not (Get-Command "7z.exe" -ErrorAction SilentlyContinue)) {
         Invoke-RestMethod -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_7zip.ps1/raw | Invoke-Expression
     }
-    $env:Path = [Environment]::GetEnvironmentVariable("Path", "User")
 
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
     if(Get-Item $Target -ErrorAction SilentlyContinue) {
