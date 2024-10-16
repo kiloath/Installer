@@ -8,7 +8,7 @@ function Install {
     $Target = Join-Path $Directory "LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#
-    if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
+    if (-not (Get-Command "7z.exe" -ErrorAction SilentlyContinue)) {
         Invoke-RestMethod -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_7zip.ps1/raw | Invoke-Expression
     }
 
