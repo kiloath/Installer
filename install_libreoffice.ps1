@@ -13,6 +13,16 @@ function Install {
         (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
     }
 
+    # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
+    if(Get-Item $Target -ErrorAction SilentlyContinue) {
+        Write-Host "你已下載最新版, 不下載開始安裝: $DownloadFile"
+    }
+    else {
+        New-Item $Directory -Force -ItemType Directory | Out-Null
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
+    }
+
     New-Item $Directory -Force -ItemType Directory | Out-Null
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
