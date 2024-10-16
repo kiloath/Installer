@@ -10,7 +10,7 @@ function Install {
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#
     if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
-        (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
+        Invoke-RestMethod -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_7zr.ps1/raw | Invoke-Expression
     }
     #>
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -

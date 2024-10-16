@@ -6,11 +6,10 @@ function Install {
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "LibreOffice"
     $Target = Join-Path $Directory "LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
-    $BinDir = "$Directory"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#
     if (-not (Get-Command "7zr.exe" -ErrorAction SilentlyContinue)) {
-        (Invoke-WebRequest "https://raw.githubusercontent.com/kiloath/Installer/main/install_7zr.ps1" -UseBasicParsing).Content | Invoke-Expression
+        Invoke-RestMethod -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/install_7zip.ps1/raw | Invoke-Expression
     }
 
     # (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
@@ -22,9 +21,9 @@ function Install {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
     }
-    
+
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
-    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
+    Start-Process -FilePath "7z.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
   
     # (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - -
     $WshShell = New-Object -comObject WScript.Shell
