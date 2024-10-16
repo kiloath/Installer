@@ -23,7 +23,7 @@ function Install {
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
     }
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
-    Start-Process -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
+    Start-Process -wait -FilePath "7zr.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
     # Expand-Archive -Path $Target -DestinationPath $Directory -Force
     # (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - -
     # <#
