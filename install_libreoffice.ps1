@@ -1,10 +1,11 @@
 function Install {
-    $latest_version = latest_version
+    if(-not$v) { '請設定參數$v';return }
+    $Version = $v
     # (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - - (1) 參數設定 - - - - - - - - - - - -
-    $DownloadUrl = "https://download.documentfoundation.org/libreoffice/portable/24.8.2/LibreOfficePortable_24.8.2_MultilingualStandard.paf.exe"
+    $DownloadUrl = "https://download.documentfoundation.org/libreoffice/portable/$Version/LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "LibreOffice"
-    $Target = Join-Path $Directory "LibreOfficePortable_24.8.2_MultilingualStandard.paf.exe"
+    $Target = Join-Path $Directory "LibreOfficePortable_${Version}_MultilingualStandard.paf.exe"
     $BinDir = "$Directory"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#

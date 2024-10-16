@@ -55,10 +55,11 @@
 ## {8!} 我的工具箱
 * (1) 我的最愛 (無需權限)
   ```
-  $v='4.5';$ps='install_rufus.ps1'     # Rufus
-  $ps='install_anyburn_always.ps1'     # AnyBurn
-  $ps='install_powershell7_latest.ps1' # powershell 7
-  $ps='install_powershell7_setup.ps1'  # powershell 7 客製
+  $v='4.5';$ps='install_rufus.ps1'              # Rufus
+  $v='24.8.2';$ps='install_liberoffice.ps1'     # LibreOffice
+  $ps='install_anyburn_always.ps1'              # AnyBurn
+  $ps='install_powershell7_latest.ps1'          # powershell 7
+  $ps='install_powershell7_setup.ps1'           # powershell 7 客製
   $ps='install_7zr.ps1'
   $ps='install_7zip.ps1'
   $ps='install_git_latest.ps1'
