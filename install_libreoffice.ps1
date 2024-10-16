@@ -7,6 +7,9 @@ function Install {
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "LibreOffice"
     $Target = Join-Path $Directory $TargetName
+    $BinDir = "$Directory"
+    $BinExe = "$BinDir\LibreOfficePortable.exe"
+    $AppName = "LibreOffice"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#
     if (-not (Get-Command "7z.exe" -ErrorAction SilentlyContinue)) {
@@ -28,6 +31,9 @@ function Install {
   
     # (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - -
     $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$KiloathDir\$AppName.lnk")
+    $Shortcut.TargetPath = $BinExe
+    $Shortcut.Save()
     $Shortcut = $WshShell.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\KiloathApp.lnk")
     $Shortcut.TargetPath = Join-Path $HOME "KiloathApp"
     $Shortcut.Save()
