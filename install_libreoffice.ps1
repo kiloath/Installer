@@ -24,7 +24,7 @@ function Install {
     }
 
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
-    Start-Process -FilePath "7z.exe" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
+    Start-Process -FilePath "7z" -ArgumentList "x $Target -o""$Directory"" -y" | Out-Null
   
     # (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - - (7) 捷徑 - - - - - - - - - - - - - -
     $WshShell = New-Object -comObject WScript.Shell
