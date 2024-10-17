@@ -37,6 +37,15 @@ function Install {
     $Shortcut = $WshShell.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\KiloathApp.lnk")
     $Shortcut.TargetPath = Join-Path $HOME "KiloathApp"
     $Shortcut.Save()
+    
+    # (8) 補充
+    $Download_fav_Url = "https://github.com/kiloath/Installer/raw/main/assets/quickstart.exe"
+    $Download_fav_Local = Join-Path $Directory "App\libreoffice\program\quickstart.exe"
+    # (3) 是否已下載quickstart.exe - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - - (3) 是否已下載 - - - - - - - - - - -
+    If (-Not (Test-Path $Download_fav_Local)) {
+        Invoke-WebRequest $Download_fav_Url -OutFile $Download_fav_Local -UseBasicParsing
+    }
+    
 }
 
 Write-Host "--- 安裝 LibreOffice ---"
