@@ -7,8 +7,8 @@ function Install {
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "LibreOffice"
     $Target = Join-Path $Directory $TargetName
-    $BinDir = "$Directory"
-    $BinExe = "$BinDir\LibreOfficePortable.exe"
+    $BinDir = Join-Path $Directory "App\libreoffice\program\soffice.exe"
+    $BinExe = Join-Path $BinDir "soffice.exe"
     $AppName = "LibreOffice"
     # (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - - (2) 需要7z來解壓縮 - - - - - - - - -
     # <#
