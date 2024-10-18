@@ -21,6 +21,8 @@ function Install {
             "--add Microsoft.VisualStudio.Workload.NativeDesktop;includeRecommended " + 
             "--add Microsoft.VisualStudio.Component.VC.ATLMFC " +
             "--add Microsoft.VisualStudio.Component.VC.CLI.Support " +
+            "--add Microsoft.VisualStudio.Component.WinXP " +
+            "--add Microsoft.VisualStudio.Component.VC.140 " +
             "--lang en-US --lang zh-TW --passive"
         )
         Start-Process -FilePath "$Target" `
