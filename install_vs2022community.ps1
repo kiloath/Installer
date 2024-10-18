@@ -16,7 +16,8 @@ function Install {
         # Start-Process -FilePath "$Target" -ArgumentList "--layout $Directory\VSlayout --add Microsoft.VisualStudio.Workload.NativeDesktop; --includeRecommended --includeOptional --add Microsoft.VisualStudio.Component.VC.ATLMFC --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --lang en-US --lang zh-TW --passive" -wait
         $params = (
             "--layout $Directory\VSlayout " +
-            "--add Microsoft.VisualStudio.Workload.ManagedDesktop " +
+            "--add Microsoft.VisualStudio.Workload.ManagedDesktop;includeRecommended " +
+            "--add Microsoft.VisualStudio.Workload.NetWeb;includeRecommended " +
             "--add Microsoft.VisualStudio.Workload.NativeDesktop;includeRecommended " + 
             "--add Microsoft.VisualStudio.Component.VC.ATLMFC " +
             "--add Microsoft.VisualStudio.Component.VC.CLI.Support " +
