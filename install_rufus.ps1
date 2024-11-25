@@ -2,8 +2,6 @@ function Install {
     if(-not$v) { '請設定參數$v';return }
     $Version = $v
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $DownloadUrl = "https://mirror.twds.com.tw/videolan/vlc/$Version/win32/vlc-$Version-win32.zip"
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $DownloadUrl = "https://github.com/pbatard/rufus/releases/download/v$Version/rufus-${Version}p.exe"
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "Rufus"
