@@ -154,7 +154,13 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/echo.ps1 -useb).Content -replace '\[string\]\$name.*','[string]$name="kiloath"' | iex
   ```
 
-## {13!} 遺產
+## {13!} HyperV
+* Nested Virtualization
+  ```
+  Set-VMProcessor -VMName 'win' -ExposeVirtualizationExtensions $true
+  ```
+
+## {14!} 遺產
 * 執行install前, 先執行以下跳過SSL檢查。(都會有憑證所以不需要了)
   ```
   [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
