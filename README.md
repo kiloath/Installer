@@ -167,6 +167,7 @@
   * 請重啟電腦
   wsl --update
   ```
+  
 * For Windows Docker
   ```
   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
