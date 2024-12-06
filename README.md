@@ -18,7 +18,7 @@
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/$ps -useb).Content | iex
   ```
 
-## {4!} 只有我才用的到
+## {4!} Fortinet
 * 匯出憑證
   ```
   $ps='export_crt.ps1'
@@ -159,8 +159,20 @@
   ```
   Set-VMProcessor -VMName 'win' -ExposeVirtualizationExtensions $true
   ```
-
-## {14!} 遺產
+## {14!} Docker Prepare
+* For Rancher/Docker Desktop
+  ```
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  * 請重啟電腦
+  wsl --update
+  ```
+* For Windows Docker
+  ```
+  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  Enable-WindowsOptionalFeature -Online -FeatureName containers -All
+  ```
+## {15!} 遺產
 * 執行install前, 先執行以下跳過SSL檢查。(都會有憑證所以不需要了)
   ```
   [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
