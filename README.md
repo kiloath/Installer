@@ -161,13 +161,14 @@
   ```
 ## {14!} Docker Prepare
 * For Rancher/Docker Desktop
+
   ```
   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
   dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
   * 請重啟電腦
   wsl --update
   ```
-  
+
 * For Windows Docker
   ```
   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
