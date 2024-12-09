@@ -1,6 +1,6 @@
 services:
   gitlab:
-    image: gitlab/gitlab-ce:17.5.3-ce.0
+    image: gitlab/gitlab-ce:17.6.1-ce.0
     container_name: gitlab
     restart: always
     environment:
@@ -12,4 +12,3 @@ services:
       - 'D:/docker-compose/gitlab/logs:/var/log/gitlab'
       - 'D:/docker-compose/gitlab/data:/var/opt/gitlab'
     shm_size: '256m'
-# gitlab/gitlab-ce:17.6.1-ce.0 放久會當
