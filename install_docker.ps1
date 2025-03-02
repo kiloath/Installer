@@ -18,6 +18,7 @@ function Install {
         Invoke-WebRequest $DownloadUrl -OutFile $Target -UseBasicParsing        
     }
     # (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - - (4) 解壓縮 - - - - - - - - - - - - -
+    Stop-Service docker
     Expand-Archive -Path $Target -DestinationPath $Directory -Force
     # (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - - (5) 設定 Path- - - - - - - - - - - -
     $regexInstallPath = [regex]::Escape($BinDir)
@@ -25,7 +26,6 @@ function Install {
         [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $BinDir, "User")
         $env:Path = $env:Path.TrimEnd(";") + ";" + $BinDir
     }
-    Stop-Service docker
     dockerd --register-service
     Start-Service docker
 }
