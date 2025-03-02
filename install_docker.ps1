@@ -1,5 +1,7 @@
 function Install {
-    $DownloadFile = "docker-26.0.0.zip"
+    if(-not$v) { '請設定參數$v';return }
+    $Version = $v
+    $DownloadFile = "docker-$Version.zip"
     $DownloadUrl = "https://download.docker.com/win/static/stable/x86_64/$DownloadFile "
     $KiloathDir = Join-Path $HOME "KiloathApp"
     $Directory = Join-Path $KiloathDir "docker"

@@ -37,6 +37,7 @@
   $ps='install_vcbuildtools.ps1'          # Visual C++ 編譯環境安裝
   $ps='install_vs2022community.ps1'       # Visual Studio 2022 Community
   $ps='install_docker.ps1'                # docker
+  $v='28.0.1';$ps='install_docker.ps1'       # docker
   $ps='install_rancherdesktop_latest.ps1' # Rancher Desktop
   ```
 
