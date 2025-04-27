@@ -83,6 +83,7 @@
   $ps='install_vidcoder_latest.ps1'      # 影片壓縮
   $ps='install_arctime.ps1'              # 字幕
   $v='3.0.21';$ps='install_vlc.ps1'      # 播放器
+  $ps='install_mcp-be_latest.ps1'      # 播放器
   $ps='install_notepad++_latest.ps1'     # 文字編輯器
   $ps='install_sarasa.ps1'               # 更紗黑體
   $ps='install_tiddlydesktop_latest.ps1' # TiddlyWiki 編輯器
