@@ -42,3 +42,15 @@ PAUSE
     "@
     Set-Content -Path $LinkPath -Value $cmdContent -Encoding ASCII
     ```
+# scoop
+## 安裝scoop
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+* 因為不能用管理員身分安裝, 所以關閉UAC時會無法安裝, 加上-RunAsAdmin即可。
+```
+Invoke-RestMethod https://get.scoop.sh -OutFile install-scoop.ps1
+.\install-scoop.ps1 -RunAsAdmin
+```
+  
