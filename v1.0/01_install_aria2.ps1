@@ -2,21 +2,23 @@
 	[switch]$h,
 	[switch]$f,
 	[switch]$force,
-	[switch]$r
+	[switch]$r,
+	[string]$o = "KiloathAPP"
 )
 if ($h) {
     Write-Output @"
 可用參數:
   -h       顯示此說明
-  -f       不重新下載執行安裝
-  -force   重新下載並安裝
+  -f       不重新下載, 重新安裝
+  -force   重新下載, 重新安裝
   -r       無功能
+  -o       輸出目錄名稱
 "@
     exit
 }
 $OutputEncoding = [System.Text.Encoding]::UTF8
 $AppName = "aria2"
-$RootDir = Join-Path $HOME "PortableApp"
+$RootDir = Join-Path $HOME $o
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 #region 函式
 function latest_version {
