@@ -74,5 +74,14 @@ fnm install --lts
 fnm list
 fnm default lts-latest
 node --version
+fnm use lts-latest # 目前的terminal
 ```
+* 安裝pnpm
+  ```
+  npm install -g pnpm@latest-10
+  ```
+  * 如果憑證被置換, 要自己指定憑證
+  ```
+    NODE_EXTRA_CA_CERTS = <path>\xxx.crt
+  ```
   
