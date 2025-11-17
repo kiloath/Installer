@@ -53,4 +53,26 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 Invoke-RestMethod https://get.scoop.sh -OutFile install-scoop.ps1
 .\install-scoop.ps1 -RunAsAdmin
 ```
+## 安裝fnm
+```
+scoop install fnm
+```
+* Powershell: 在$PROFILE裡加上
+  ```
+  fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+  ```
+## scoop指令
+```
+scoop list #列出安裝的程式
+scoop statu #列出落後的程式
+scoop update #升級scoop
+scoop update fnm #升級fnm
+```
+## 安裝nodejs
+```
+fnm install --lts
+fnm list
+fnm default lts-latest
+node --version
+```
   
