@@ -18,3 +18,27 @@ PAUSE
 ```
 01_install_aria2.ps1 -h
 ```
+## 經驗
+* path有長度限制, 也不希望去太多地方找, 所以想集中在一個目錄下
+    * SymbolicLink最方便, 但要權限, 所以不採用
+    ```
+    New-Item -ItemType SymbolicLink -Path $LinkPath -Target $BinPath
+    ```
+    * HardLink不用權限, 但遇到像git要相對路徑就無法使用
+    ```
+    New-Item -ItemType HardLink -Path $LinkPath -Target $BinPath
+    ```
+    * git改用cmd檔可行, 但遇到oh my posh不認, 所以不採用, 最後還是只能設path
+    ```
+    $LinkPath = Join-Path $RootDir "git.cmd"
+        if (Test-Path $LinkPath) {
+        Remove-Item $LinkPath -Force
+    }
+    $cmdContent = @"
+    @echo off
+    setlocal
+    set GIT_HOME=%~dp0git
+    "%GIT_HOME%\cmd\git.exe" %*
+    "@
+    Set-Content -Path $LinkPath -Value $cmdContent -Encoding ASCII
+    ```

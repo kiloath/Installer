@@ -17,26 +17,26 @@ if ($h) {
     exit
 }
 $OutputEncoding = [System.Text.Encoding]::UTF8
-$AppName = "aria2"
+$AppName = "git"
 $RootDir = Join-Path $HOME $o
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 #region 函式
 function latest_version {
-    $DownloadUrl = "https://github.com/aria2/aria2/releases/latest"
+    $DownloadUrl = "https://github.com/git-for-windows/git/releases/latest"
     $request = [System.Net.WebRequest]::Create($DownloadUrl)
     $response = $request.GetResponse()
     $realTagUrl = $response.ResponseUri.OriginalString
-    $GitHubversion = $realTagUrl.split('-')[-1]
+    $GitHubversion = $realTagUrl.split('/')[-1].Trim('v')
     return $GitHubversion
 }
 function current_version {
     try {
-		$output = & "$RootDir\aria2c.exe" --version 2>$null
-		return [System.Version]($output.Split()[2])
-	}
-	catch {
-		return [System.Version]"0.0.0.0"
-	}
+        $output = & "$RootDir\git.exe" --version 2>$null
+        return [System.Version]($output.Split()[2])
+    }
+    catch {
+        return [System.Version]"0.0.0.0"
+    }
 }
 #endregion 函式
 function Install {
@@ -53,10 +53,17 @@ function Install {
 			return
 		}
     }
+    $verParts = $latest_version.split('.')
+    if ($verParts[4] -eq "1") {
+        $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2]
+    }
+    else {
+        $version = $verParts[0] + '.' + $verParts[1] + '.' + $verParts[2] + '.' + $verParts[4]
+    }
 #endregion 檢查更新
 #region 參數設定
-	$DownloadName = "aria2-${latest_version}-win-64bit-build1.zip"
-	$DownloadUrl = "https://github.com/aria2/aria2/releases/download/release-${latest_version}/${DownloadName}"
+    $DownloadName = "PortableGit-$version-64-bit.7z.exe"
+    $DownloadUrl = "https://github.com/git-for-windows/git/releases/download/v$latest_version/PortableGit-$version-64-bit.7z.exe"
     $DownloadDir = Join-Path $RootDir $AppName
     $DownloadPath = Join-Path $DownloadDir $DownloadName
 #endregion 參數設定
@@ -73,28 +80,29 @@ function Install {
     }
     else {
         New-Item $DownloadDir -Force -ItemType Directory | Out-Null
-        Invoke-WebRequest $DownloadUrl -OutFile $DownloadPath -UseBasicParsing
+        & aria2c.exe `
+		--file-allocation=none `
+		-x 16 `
+		-s 16 `
+		-k 1M `
+		-d $DownloadDir `
+		$DownloadUrl
     }
 #endregion 下載
 #region 解壓縮
-	Expand-Archive -Path $DownloadPath -DestinationPath $DownloadDir -Force
+    Start-Process -FilePath "$DownloadPath" -ArgumentList "-o$DownloadDir -y" -wait | Out-Null
 #endregion 解壓縮
 #region 設定Path
-    $regexInstallPath = [regex]::Escape($RootDir)
+    $BinDir = Join-Path $DownloadDir "cmd"
+    $regexInstallPath = [regex]::Escape($BinDir)
     if (-Not ($env:Path -Match "$regexInstallPath")) {
-        [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $RootDir, "User")
-        $env:Path = $env:Path.TrimEnd(";") + ";" + $RootDir 
+        [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User").TrimEnd(";") + ";" + $BinDir, "User")
+        $env:Path = $env:Path.TrimEnd(";") + ";" + $BinDir
     }
 #endregion 設定Path
 #region 捷徑
 #endregion 捷徑
 #region 連結
-	$LinkPath = Join-Path $RootDir "aria2c.exe"
-    $BinPath = Join-Path $DownloadDir "aria2-$latest_version-win-64bit-build1\aria2c.exe"
-	if (Test-Path $LinkPath) {
-		Remove-Item $LinkPath -Force
-	}
-	New-Item -ItemType HardLink -Path $LinkPath -Target $BinPath
 #endregion 連結
 #region 右鍵功能
 #endregion 右鍵功能
