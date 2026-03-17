@@ -16,7 +16,7 @@
   $ps='' # 請先設定命令
   irm -Uri https://gitlab.com/api/v4/projects/58360840/repository/files/$ps/raw | iex
   (iwr https://raw.githubusercontent.com/kiloath/Installer/main/$ps -useb).Content | iex
-  powershell -ExecutionPolicy ByPass -c "irm https://kiloath.github.io/Install/$ps | iex"
+  powershell -ExecutionPolicy ByPass -c "irm https://kiloath.github.io/Installer/$ps | iex"
   ```
 
 ## {4!} Fortinet
