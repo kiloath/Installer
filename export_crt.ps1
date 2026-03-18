@@ -8,3 +8,5 @@ $s3 = $s2 -split '=';
 Export-Certificate -Cert $_ -FilePath "$($s3[1]).cer";
 Start-Process -FilePath 'certutil.exe' `
 -ArgumentList "-encode $($s3[1]).cer $($s3[1]).crt"}
+Start-Process -FilePath 'certutil.exe' `
+-ArgumentList "-encode $($s3[1]).crt $($s3[1]).pem"}
