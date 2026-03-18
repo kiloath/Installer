@@ -7,6 +7,6 @@ Where-Object {
     $s2 = ForEach-Object { $s -match 'CN=' };
     $s3 = $s2 -split '=';
     Export-Certificate -Cert $_ -FilePath "$($s3[1]).cer";
-    Start-Process -FilePath 'certutil.exe' -ArgumentList "-encode $($s3[1]).cer $($s3[1]).crt";
-    Start-Process -FilePath 'certutil.exe' -ArgumentList "-encode $($s3[1]).crt $($s3[1]).pem";
+    Start-Process -FilePath 'certutil.exe' -ArgumentList "-encode $($s3[1]).cer $($s3[1]).crt" -Wait;
+    Start-Process -FilePath 'certutil.exe' -ArgumentList "-encode $($s3[1]).crt $($s3[1]).pem" -Wait;
 }
