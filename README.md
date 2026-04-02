@@ -171,6 +171,33 @@
   * 請重啟電腦
   wsl --update
   ```
+* For Podman
+  ```
+  Enable-WindowsOptionalFeature -Online -FeatureName "VirtualMachinePlatform" -All
+  Enable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -All
+  重啟電腦後, 在公司需要安裝憑證
+  wsl --update
+  Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+  ```
+  - (1) Podman  
+    https://github.com/containers/podman/releases  
+    v5.8.0  
+    podman-remote-release-windows_amd64.zip
+
+  - (2) docker  
+    https://download.docker.com/win/static/stable/x86_64/  
+    docker-29.3.1.zip
+
+  - (3) docker credential  
+    https://github.com/docker/docker-credential-helpers/releases  
+    docker-credential-wincred-v0.9.4.windows-amd64.exe  
+    自已改名為docker-credential-wincred.exe
+
+  - (4) docker compose  
+    https://github.com/docker/compose/releases/tag/v5.1.1  
+    docker-compose-windows-x86_64.exe  
+    自已改名為docker-compose.exe  
+    放在~\.docker\cli-plugins\
 
 * For Windows Docker
   ```
